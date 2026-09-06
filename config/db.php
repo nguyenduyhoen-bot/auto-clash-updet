@@ -7,24 +7,12 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Kiểm tra môi trường chạy: Localhost hay Hosting InfinityFree
-$isLocal = (isset($_SERVER['SERVER_NAME']) && in_array($_SERVER['SERVER_NAME'], ['localhost', '127.0.0.1']));
-
-if ($isLocal) {
-    // Môi trường Local (XAMPP / Laragon)
-    define('DB_HOST', 'localhost');
-    define('DB_PORT', '3306');
-    define('DB_NAME', 'autoclash_db');
-    define('DB_USER', 'root');
-    define('DB_PASS', '');
-} else {
-    // Môi trường Production Hosting (InfinityFree)
-    define('DB_HOST', 'sql311.infinityfree.com');
-    define('DB_PORT', '3306');
-    define('DB_NAME', 'if0_42847466_autococ');
-    define('DB_USER', 'if0_42847466');
-    define('DB_PASS', 'NkvKPFIZjJQA');
-}
+// Cấu hình Database MySQL Hosting InfinityFree
+define('DB_HOST', 'sql311.infinityfree.com');
+define('DB_PORT', '3306');
+define('DB_NAME', 'if0_42847466_autococ');
+define('DB_USER', 'if0_42847466');
+define('DB_PASS', 'NkvKPFIZjJQA');
 
 // Tự động khởi tạo bảng dữ liệu nếu database mới tạo và chưa có bảng
 function checkAndInitTables($pdo) {
@@ -38,7 +26,16 @@ function checkAndInitTables($pdo) {
             $sqlFile = __DIR__ . '/../database.sql';
             if (file_exists($sqlFile)) {
                 $sqlContent = file_get_contents($sqlFile);
-                $pdo->exec($sqlContent);
+                $queries = array_filter(array_map('trim', explode(';', $sqlContent)));
+                foreach ($queries as $query) {
+                    if (!empty($query)) {
+                        try {
+                            $pdo->exec($query);
+                        } catch (Exception $ex) {
+                            // ignore if table exists
+                        }
+                    }
+                }
             }
         }
     } catch (Exception $e) {
@@ -59,6 +56,7 @@ function getDB() {
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => false,
+            PDO::MYSQL_ATTR_MULTI_STATEMENTS => true,
         ];
         $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
         

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoClash - Phần Mềm Auto Bot Clash of Clans Tự Động Hóa Số 1</title>
+  <meta name="description" content="Tải bộ cài đặt AutoClash và mua key kích hoạt tự động. Auto farm tài nguyên, nâng tường, thả quân kịch bản thông minh cho Clash of Clans trên Windows.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background Glow & Grid Effects -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <div class="logo-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+        <div class="logo-text">Auto<span>Clash</span></div>
+        <span class="badge-version">v1.0.1</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features">Tính năng</a>
+        <a href="#pricing">Bảng giá Key</a>
+        <a href="#download">Tải bộ cài</a>
+        <a href="#guide">Hướng dẫn</a>
+        <a href="#faq">Hỏi đáp</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="#pricing" class="btn btn-outline"><i class="fa-solid fa-key"></i> Mua Key</a>
+        <a href="#download" class="btn btn-primary"><i class="fa-solid fa-download"></i> Tải Ngay</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Dropdown -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features" class="mobile-link">Tính năng</a>
+    <a href="#pricing" class="mobile-link">Bảng giá Key</a>
+    <a href="#download" class="mobile-link">Tải bộ cài</a>
+    <a href="#guide" class="mobile-link">Hướng dẫn</a>
+    <a href="#faq" class="mobile-link">Hỏi đáp</a>
+    <div class="mobile-btns">
+      <a href="#pricing" class="btn btn-outline w-full"><i class="fa-solid fa-key"></i> Mua Key</a>
+      <a href="#download" class="btn btn-primary w-full"><i class="fa-solid fa-download"></i> Tải Bộ Cài</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>Bản Cập Nhật v1.0.1 Mới Nhất • Tự Động Hóa 100%</span>
+        </div>
+        <h1 class="hero-title">
+          Tối Ưu Hóa & Cày Game <br>
+          <span class="gradient-text">Clash of Clans</span> Tự Động 24/7
+        </h1>
+        <p class="hero-desc">
+          AutoClash mang lại giải pháp auto farm tài nguyên, auto nâng cấp tường, tự động thả quân thông minh theo kịch bản và hỗ trợ không giới hạn giả lập LDPlayer, BlueStacks, Nox trên Windows.
+        </p>
+        <div class="hero-cta">
+          <a href="#download" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-download"></i> Tải Bộ Cài Đặt (Setup.exe)
+          </a>
+          <a href="#pricing" class="btn btn-glow btn-lg">
+            <i class="fa-solid fa-bolt"></i> Mua Key Kích Hoạt
+          </a>
+        </div>
+        <div class="hero-highlights">
+          <div class="highlight-item"><i class="fa-solid fa-shield-halved"></i> An Toàn Tuyệt Đối</div>
+          <div class="highlight-item"><i class="fa-solid fa-wifi"></i> Tự Kết Nối Lại Khi Mất Mạng</div>
+          <div class="highlight-item"><i class="fa-solid fa-cloud-arrow-down"></i> Tự Cập Nhật Từ Xa</div>
+          <div class="highlight-item"><i class="fa-solid fa-gift"></i> Tặng Key Thử 1 Ngày</div>
+        </div>
+
+        <!-- Tool Mockup Visual -->
+        <div class="hero-preview">
+          <div class="mockup-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="mockup-title">AutoClash Pro v1.0.1 - Control Center</div>
+            <div class="mockup-status"><span class="status-live"></span> Đang hoạt động</div>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-sidebar">
+              <div class="sidebar-btn active"><i class="fa-solid fa-mobile-screen"></i> Giả lập</div>
+              <div class="sidebar-btn"><i class="fa-solid fa-sliders"></i> Điều khiển</div>
+              <div class="sidebar-btn"><i class="fa-solid fa-gear"></i> Cấu hình</div>
+              <div class="sidebar-btn"><i class="fa-solid fa-code"></i> Macro</div>
+            </div>
+            <div class="mockup-main">
+              <div class="stats-row">
+                <div class="stat-box">
+                  <div class="stat-label">Vàng thu hoạch</div>
+                  <div class="stat-val text-gold">+18,450,000 <i class="fa-solid fa-coins"></i></div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-label">Dầu tím thu hoạch</div>
+                  <div class="stat-val text-elixir">+16,800,000 <i class="fa-solid fa-droplet"></i></div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-label">Dầu đen (Dark Elixir)</div>
+                  <div class="stat-val text-dark">+145,000 <i class="fa-solid fa-gem"></i></div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-label">Tường đã nâng</div>
+                  <div class="stat-val text-wall">42 Cọc Tường <i class="fa-solid fa-cubes"></i></div>
+                </div>
+              </div>
+              <div class="console-box">
+                <div class="console-line"><span class="c-time">[21:40:12]</span> <span class="c-info">[HỆ THỐNG]</span> Đã nhận diện thiết bị emulator-5554 (LDPlayer9-0)</div>
+                <div class="console-line"><span class="c-time">[21:40:15]</span> <span class="c-success">[TÀI NGUYÊN]</span> Tìm thấy nhà hoang: 1,120,000 Vàng / 980,000 Dầu tím</div>
+                <div class="console-line"><span class="c-time">[21:40:48]</span> <span class="c-accent">[TẤN CÔNG]</span> Kích hoạt kịch bản thả quân 4 góc -> Phá hủy 100% (3 Sao)</div>
+                <div class="console-line"><span class="c-time">[21:41:05]</span> <span class="c-warn">[NÂNG TƯỜNG]</span> Đã tự động nâng cấp 2 cọc tường Level 14</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">TÍNH NĂNG VƯỢT TRỘI</div>
+          <h2 class="section-title">Trang Bị Mọi Tính Năng Bạn Cần</h2>
+          <p class="section-desc">Được tối ưu hoá từng dòng mã với thuật toán AI nhận diện mẫu hình ảnh Tesseract & OpenCV, mang lại độ chuẩn xác tuyệt đối.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+            <h3>Auto Farm Thông Minh</h3>
+            <p>Tự động lướt tìm kiếm nhà giàu hoặc nhà hoang mỏ đầy theo ngưỡng vàng, dầu và dầu đen bạn thiết lập.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+            <h3>Tự Động Nâng Tường</h3>
+            <p>Tự động phát hiện khi kho vàng/dầu đầy và nâng cấp cọc tường liên tục, giúp bạn không bao giờ bị tràn tài nguyên.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-chess-knight"></i></div>
+            <h3>Kịch Bản Thả Quân Chuẩn</h3>
+            <p>Tích hợp nhiều kịch bản thả quân: Goblin trộm tài nguyên, Barba-Archer, E-Dragon, Golem Witch, tùy biến theo ý bạn.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3>Hỗ Trợ Đa Giả Lập</h3>
+            <p>Quản lý và treo cùng lúc hàng chục tab giả lập LDPlayer, BlueStacks, Nox, Memu mà không gây xung đột.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <h3>Cập Nhật Tự Động Từ Xa</h3>
+            <p>Tự động kiểm tra bản mới từ máy chủ và cập nhật mượt mà, không lo lỗi thời hay gián đoạn kịch bản cày cuốc.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <h3>Chống Mất Kết Nối 24/7</h3>
+            <p>Cơ chế canh gác thông minh (Watchdog) tự khởi động lại game khi bị văng app, mất mạng hoặc bảo trì server.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section bg-card-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">BẢNG GIÁ DỊCH VỤ</div>
+          <h2 class="section-title">Bảng Giá Kích Hoạt Key Bản Quyền</h2>
+          <p class="section-desc">Giá siêu rẻ, kích hoạt nhanh chóng qua Zalo hoặc quét mã QR tự động 24/7.</p>
+        </div>
+
+        <!-- Trial banner -->
+        <div class="trial-banner">
+          <div class="trial-text">
+            <i class="fa-solid fa-gift pulse"></i>
+            <div>
+              <strong>Ưu Đãi Người Dùng Mới:</strong> Lần đầu liên hệ Admin, bạn sẽ nhận được <strong>Key dùng thử 1 ngày hoàn toàn MIỄN PHÍ</strong>!
+            </div>
+          </div>
+          <a href="https://zalo.me/0338996239" target="_blank" class="btn btn-sm btn-white">
+            <i class="fa-brands fa-whatsapp"></i> Nhận Key Thử Ngay
+          </a>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Card 1: Gói Ngày -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <div class="plan-name">Gói Ngày</div>
+              <p class="plan-desc">Phù hợp trải nghiệm thử trước khi gắn bó lâu dài.</p>
+              <div class="plan-price">
+                <span class="currency">₫</span>
+                <span class="amount">5.000</span>
+                <span class="period">/ 1 Ngày</span>
+              </div>
+            </div>
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-circle-check"></i> Đầy đủ tính năng Auto Farm</li>
+              <li><i class="fa-solid fa-circle-check"></i> Tự động nâng cấp tường</li>
+              <li><i class="fa-solid fa-circle-check"></i> Hỗ trợ 1 thiết bị / PC</li>
+              <li><i class="fa-solid fa-circle-check"></i> Hỗ trợ kỹ thuật cơ bản</li>
+            </ul>
+            <div class="pricing-action">
+              <button class="btn btn-outline w-full buy-key-btn" data-plan="Gói 1 Ngày" data-price="5000">
+                <i class="fa-solid fa-cart-shopping"></i> Mua Gói Ngày
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2: Gói Tháng (Popular) -->
+          <div class="pricing-card popular">
+            <div class="popular-ribbon">PHỔ BIẾN NHẤT 🔥</div>
+            <div class="pricing-header">
+              <div class="plan-name">Gói Tháng</div>
+              <p class="plan-desc">Lựa chọn tiết kiệm nhất cho anh em cày cuốc thường xuyên.</p>
+              <div class="plan-price">
+                <span class="currency">₫</span>
+                <span class="amount">50.000</span>
+                <span class="period">/ 30 Ngày</span>
+              </div>
+              <div class="plan-badge">Tiết kiệm 65% chi phí</div>
+            </div>
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-circle-check"></i> Không giới hạn số acc cày</li>
+              <li><i class="fa-solid fa-circle-check"></i> Tự động nâng cấp tường thông minh</li>
+              <li><i class="fa-solid fa-circle-check"></i> Đầy đủ toàn bộ kịch bản thả quân</li>
+              <li><i class="fa-solid fa-circle-check"></i> Tự động cập nhật bản mới từ xa</li>
+              <li><i class="fa-solid fa-circle-check"></i> Hỗ trợ kỹ thuật UltraViewer 24/7</li>
+            </ul>
+            <div class="pricing-action">
+              <button class="btn btn-primary w-full buy-key-btn" data-plan="Gói 1 Tháng" data-price="50000">
+                <i class="fa-solid fa-bolt"></i> Mua Gói Tháng
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3: Gói Vĩnh Viễn (VIP) -->
+          <div class="pricing-card vip">
+            <div class="vip-ribbon">TRỌN ĐỜI 👑</div>
+            <div class="pricing-header">
+              <div class="plan-name">Gói Vĩnh Viễn</div>
+              <p class="plan-desc">Mua một lần, sử dụng trọn đời mọi bản cập nhật.</p>
+              <div class="plan-price">
+                <span class="currency">₫</span>
+                <span class="amount">250.000</span>
+                <span class="period">/ Vĩnh Viễn</span>
+              </div>
+              <div class="plan-badge text-gold">Đầu tư 1 lần - Dùng mãi mãi</div>
+            </div>
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-circle-check"></i> Sử dụng vĩnh viễn không hết hạn</li>
+              <li><i class="fa-solid fa-circle-check"></i> Miễn phí 100% mọi bản nâng cấp sau này</li>
+              <li><i class="fa-solid fa-circle-check"></i> Hỗ trợ cài đặt từ A-Z qua TeamViewer</li>
+              <li><i class="fa-solid fa-circle-check"></i> Tặng kèm kho kịch bản macro VIP độc quyền</li>
+              <li><i class="fa-solid fa-circle-check"></i> Hỗ trợ đổi máy/chuyển key linh hoạt</li>
+            </ul>
+            <div class="pricing-action">
+              <button class="btn btn-glow w-full buy-key-btn" data-plan="Gói Vĩnh Viễn" data-price="250000">
+                <i class="fa-solid fa-crown"></i> Mua Vĩnh Viễn
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Support banner -->
+        <div class="support-contact-box">
+          <div class="support-avatar"><i class="fa-solid fa-headset"></i></div>
+          <div class="support-info">
+            <h4>Cần tư vấn trực tiếp hoặc thanh toán linh hoạt?</h4>
+            <p>Liên hệ ngay Admin: <strong>Thiện</strong> qua Zalo/SĐT: <span class="highlight-phone">0338996239</span></p>
+          </div>
+          <div class="support-actions">
+            <a href="https://zalo.me/0338996239" target="_blank" class="btn btn-zalo">
+              <i class="fa-solid fa-comment-dots"></i> Chat Zalo Ngay
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="section">
+      <div class="container">
+        <div class="download-container">
+          <div class="download-left">
+            <div class="section-badge">TẢI VỀ BỘ CÀI ĐẶT</div>
+            <h2 class="download-title">Sẵn Sàng Trải Nghiệm AutoClash Ngay Hôm Nay?</h2>
+            <p class="download-desc">
+              Tải file cài đặt Setup Wizard tự động. Cài đặt 1-Click đầy đủ ADB và Tesseract OCR, sẵn sàng hoạt động chỉ trong 30 giây!
+            </p>
+            <div class="specs-grid">
+              <div class="spec-item">
+                <span class="spec-name">Hệ điều hành:</span>
+                <span class="spec-val">Windows 10 / 11 (64-bit)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-name">Phiên bản:</span>
+                <span class="spec-val">v1.0.1 Stable</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-name">Tương thích:</span>
+                <span class="spec-val">LDPlayer, BlueStacks, Nox,...</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-name">Loại file:</span>
+                <span class="spec-val">Bộ cài đặt Setup Wizard (.exe)</span>
+              </div>
+            </div>
+            <div class="download-buttons">
+              <a href="AutoClash_Setup.exe" class="btn btn-primary btn-lg" id="btnDownload">
+                <i class="fa-solid fa-cloud-arrow-down"></i> TẢI BỘ CÀI (AutoClash_Setup.exe)
+              </a>
+              <a href="https://zalo.me/0338996239" target="_blank" class="btn btn-outline btn-lg">
+                <i class="fa-solid fa-headset"></i> Hỗ Trợ Cài Đặt
+              </a>
+            </div>
+            <div class="checksum-info">
+              <i class="fa-solid fa-shield-check"></i> File an toàn 100%, không chứa mã độc, sạch VirusTotal.
+            </div>
+          </div>
+          <div class="download-right">
+            <div class="install-steps-card">
+              <h3>3 Bước Cài Đặt Dễ Dàng</h3>
+              <div class="step-row">
+                <div class="step-num">1</div>
+                <div class="step-text">
+                  <strong>Tải bộ cài đặt:</strong> Tải tệp <code>AutoClash_Setup.exe</code> về máy tính của bạn.
+                </div>
+              </div>
+              <div class="step-row">
+                <div class="step-num">2</div>
+                <div class="step-text">
+                  <strong>Chạy cài đặt Wizard:</strong> Nhấp đúp mở file, chọn thư mục cài đặt và nhấn "Cài đặt ngay". Bộ cài sẽ tự chuẩn bị ADB và Tesseract OCR.
+                </div>
+              </div>
+              <div class="step-row">
+                <div class="step-num">3</div>
+                <div class="step-text">
+                  <strong>Bắt đầu cày game:</strong> Mở biểu tượng <code>AutoClash</code> ngoài màn hình chính Desktop và bấm Bắt đầu!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guide / FAQ Section -->
+    <section id="faq" class="section bg-card-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">HỎI ĐÁP THƯỜNG GẶP</div>
+          <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+          <p class="section-desc">Giải đáp tất cả thắc mắc của bạn khi sử dụng phần mềm AutoClash.</p>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item active">
+            <div class="faq-question">
+              <span>AutoClash hỗ trợ các giả lập Android nào?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Phần mềm hỗ trợ tốt nhất trên <strong>LDPlayer 9</strong>, ngoài ra tương thích hoàn toàn với BlueStacks 5, NoxPlayer, MemuPlay. Bạn chỉ cần bật tính năng ADB Debug trong cài đặt giả lập là tool sẽ tự nhận diện ngay lập tức.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Tôi có được dùng thử miễn phí không?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Có! Bạn chỉ cần liên hệ Zalo <strong>0338996239 (Thiện)</strong> để nhận ngay Key dùng thử 1 ngày với đầy đủ 100% tính năng của bản trả phí.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Cài đặt có phức tạp không?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Cực kỳ đơn giản! Bộ cài đặt <strong>AutoClash_Setup.exe</strong> tự động giải nén, cài đặt ADB, Tesseract OCR và cấu hình đường dẫn PATH vào hệ thống trong 1 lần bấm. Nếu gặp khó khăn, Admin sẽ hỗ trợ qua UltraViewer từ xa miễn phí.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Tính năng tự động cập nhật hoạt động như thế nào?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Mỗi khi có bản nâng cấp hoặc sửa lỗi, công cụ <strong>Updater.exe</strong> đi kèm sẽ tự động thông báo và tải phiên bản mới về ghi đè, bạn không cần phải tải lại thủ công từ đầu.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <i class="fa-solid fa-fire-flame-curved"></i> Auto<span>Clash</span>
+        </div>
+        <p>Phần mềm tự động hóa Clash of Clans chuyên nghiệp, uy tín số 1 Việt Nam.</p>
+        <p class="copyright">© 2026 AutoClash Team. All rights reserved.</p>
+      </div>
+      <div class="footer-contact">
+        <h4>Liên Hệ & Hỗ Trợ Kỹ Thuật</h4>
+        <p><i class="fa-solid fa-user-shield"></i> Admin: <strong>Thiện</strong></p>
+        <p><i class="fa-solid fa-phone"></i> Hotline/Zalo: <strong>0338996239</strong></p>
+        <p><i class="fa-brands fa-github"></i> GitHub: <a href="https://github.com/nguyenduyhoen-bot/autococ" target="_blank">nguyenduyhoen-bot/autococ</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Mua Key / Thanh Toán QR -->
+  <div class="modal-overlay" id="buyModal">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-header">
+        <div class="modal-badge"><i class="fa-solid fa-shield-check"></i> THANH TOÁN AN TOÀN</div>
+        <h3 id="modalPlanTitle">Kích Hoạt Key Bản Quyền</h3>
+        <p>Quét mã QR hoặc chuyển khoản để nhận mã kích hoạt tự động qua Zalo</p>
+      </div>
+      <div class="modal-body">
+        <div class="qr-preview-box">
+          <div class="qr-image-wrapper">
+            <img id="qrImage" src="https://api.vietqr.io/image/970422-0338996239-compact2.png?amount=50000&addInfo=AUTOCLASH" alt="Mã QR Thanh Toán">
+          </div>
+          <div class="qr-note">Hỗ trợ tất cả ứng dụng Ngân hàng & Ví điện tử (Momo, ViettelPay,...)</div>
+        </div>
+        <div class="payment-details">
+          <div class="detail-row">
+            <span class="detail-label">Gói kích hoạt:</span>
+            <span class="detail-val highlight" id="modalPlanName">Gói 1 Tháng</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Số tiền:</span>
+            <span class="detail-val price-highlight" id="modalPlanPrice">50.000 VNĐ</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Ngân hàng:</span>
+            <span class="detail-val">MBBank (Quân Đội)</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Số tài khoản:</span>
+            <span class="detail-val font-mono">
+              <span id="bankAccount">0338996239</span>
+              <button class="btn-copy" id="btnCopyAcc" title="Sao chép STK"><i class="fa-solid fa-copy"></i></button>
+            </span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Chủ tài khoản:</span>
+            <span class="detail-val">NGUYEN DUY THIEN</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Nội dung CK:</span>
+            <span class="detail-val font-mono">
+              <span id="transferContent">AUTOCLASH KEY</span>
+              <button class="btn-copy" id="btnCopyContent" title="Sao chép nội dung"><i class="fa-solid fa-copy"></i></button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="https://zalo.me/0338996239" target="_blank" class="btn btn-zalo w-full btn-lg">
+          <i class="fa-brands fa-whatsapp"></i> Gửi Bill Zalo Nhận Key Ngay (0338996239)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">Đã sao chép vào bộ nhớ tạm!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

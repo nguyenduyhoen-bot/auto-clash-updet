@@ -1,10 +1,8 @@
 -- =======================================================
--- Database Schema: AutoClash (autoclash_db)
+-- Database Schema: AutoClash
 -- Hệ thống Website tải bộ cài và Mua bán Key tự động
 -- =======================================================
 
-CREATE DATABASE IF NOT EXISTS `autoclash_db` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `autoclash_db`;
 
 -- 1. Bảng Cài đặt cấu hình hệ thống (Settings)
 CREATE TABLE IF NOT EXISTS `settings` (

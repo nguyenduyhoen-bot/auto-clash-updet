@@ -7,12 +7,44 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Cấu hình Database (Mặc định cho XAMPP / Laragon)
-define('DB_HOST', 'localhost');
-define('DB_PORT', '3306');
-define('DB_NAME', 'autoclash_db');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+// Kiểm tra môi trường chạy: Localhost hay Hosting InfinityFree
+$isLocal = (isset($_SERVER['SERVER_NAME']) && in_array($_SERVER['SERVER_NAME'], ['localhost', '127.0.0.1']));
+
+if ($isLocal) {
+    // Môi trường Local (XAMPP / Laragon)
+    define('DB_HOST', 'localhost');
+    define('DB_PORT', '3306');
+    define('DB_NAME', 'autoclash_db');
+    define('DB_USER', 'root');
+    define('DB_PASS', '');
+} else {
+    // Môi trường Production Hosting (InfinityFree)
+    define('DB_HOST', 'sql311.infinityfree.com');
+    define('DB_PORT', '3306');
+    define('DB_NAME', 'if0_42847466_autococ');
+    define('DB_USER', 'if0_42847466');
+    define('DB_PASS', 'NkvKPFIZjJQA');
+}
+
+// Tự động khởi tạo bảng dữ liệu nếu database mới tạo và chưa có bảng
+function checkAndInitTables($pdo) {
+    static $checked = false;
+    if ($checked) return;
+    $checked = true;
+
+    try {
+        $check = $pdo->query("SHOW TABLES LIKE 'orders'")->fetch();
+        if (!$check) {
+            $sqlFile = __DIR__ . '/../database.sql';
+            if (file_exists($sqlFile)) {
+                $sqlContent = file_get_contents($sqlFile);
+                $pdo->exec($sqlContent);
+            }
+        }
+    } catch (Exception $e) {
+        error_log("Auto init tables error: " . $e->getMessage());
+    }
+}
 
 // Hàm kết nối PDO
 function getDB() {
@@ -29,6 +61,10 @@ function getDB() {
             PDO::ATTR_EMULATE_PREPARES   => false,
         ];
         $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+        
+        // Tự động kiểm tra và khởi tạo các bảng SQL
+        checkAndInitTables($pdo);
+
         return $pdo;
     } catch (PDOException $e) {
         // Ghi log lỗi kết nối

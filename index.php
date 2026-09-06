@@ -22,7 +22,7 @@ $plans        = getPlans();
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=<?= time() ?>">
 </head>
 <body>
   <!-- Background Glow & Grid Effects -->
@@ -48,7 +48,6 @@ $plans        = getPlans();
         <a href="#faq">Hỏi đáp</a>
       </nav>
       <div class="nav-actions">
-        <a href="#lookup" class="btn btn-outline"><i class="fa-solid fa-search"></i> Tra Cứu Key</a>
         <a href="#pricing" class="btn btn-glow"><i class="fa-solid fa-key"></i> Mua Key</a>
         <a href="#download" class="btn btn-primary"><i class="fa-solid fa-download"></i> Tải Ngay</a>
       </div>
@@ -241,6 +240,7 @@ $plans        = getPlans();
               </ul>
 
               <button type="button" class="btn <?= $isHighlight ? 'btn-primary' : 'btn-outline' ?> w-full btn-buy-plan" 
+                      onclick="openBuyModal(this)"
                       data-plan="<?= htmlspecialchars($plan['plan_code']) ?>"
                       data-name="<?= htmlspecialchars($plan['name']) ?>"
                       data-price="<?= $plan['price'] ?>"
@@ -401,13 +401,13 @@ $plans        = getPlans();
   </main>
 
   <!-- Modal Mua Key & Quét QR VietQR -->
-  <div class="modal" id="orderModal">
-    <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal" id="orderModal" style="display: none;">
+    <div class="modal-backdrop" id="modalBackdrop" onclick="closeBuyModal()"></div>
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h3 id="modalTitle"><i class="fa-solid fa-bolt"></i> Đặt Mua Key AutoClash</h3>
-          <button type="button" class="btn-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+          <button type="button" class="btn-close" id="modalClose" onclick="closeBuyModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
 
         <!-- Step 1: Điền thông tin -->
@@ -523,6 +523,6 @@ $plans        = getPlans();
     </div>
   </footer>
 
-  <script src="assets/js/app.js"></script>
+  <script src="assets/js/app.js?v=<?= time() ?>"></script>
 </body>
 </html>

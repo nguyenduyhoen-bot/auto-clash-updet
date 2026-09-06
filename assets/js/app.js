@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openModal() {
         if (orderModal) {
+            orderModal.style.display = 'flex';
             orderModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -55,10 +56,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeModal() {
         if (orderModal) {
+            orderModal.style.display = 'none';
             orderModal.classList.remove('active');
             document.body.style.overflow = '';
         }
     }
+
+    window.closeBuyModal = closeModal;
+    window.openBuyModal = function(btn) {
+        if (!btn) return;
+        const planCode = btn.dataset.plan || '1MONTH';
+        const planName = btn.dataset.name || 'Gói 1 Tháng';
+        const priceFormat = btn.dataset.priceFormat || '50.000đ';
+
+        if (formPlanCode) formPlanCode.value = planCode;
+        if (selectedPlanDisplay) {
+            selectedPlanDisplay.innerHTML = `<strong>${planName}</strong> - <span style="color: #10b981; font-weight: 700;">${priceFormat}</span>`;
+        }
+
+        if (orderStep1) orderStep1.style.display = 'block';
+        if (orderStep2) orderStep2.style.display = 'none';
+
+        openModal();
+    };
 
     if (modalClose) modalClose.addEventListener('click', closeModal);
     if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);

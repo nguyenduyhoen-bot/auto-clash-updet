@@ -263,11 +263,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!key) {
                 showToast('Vui lòng nhập mã License Key!', 'error');
+                if (activateKey) activateKey.focus();
                 return;
             }
 
             if (!hwid) {
-                showToast('Vui lòng nhập Mã máy (HWID) từ AutoClash.exe để kích hoạt!', 'error');
+                showToast('Mỗi 1 Key gắn với 1 Mã Máy Tính (HWID)! Vui lòng dán mã HWID từ AutoClash.exe để kích hoạt.', 'error');
                 if (activateHwid) activateHwid.focus();
                 return;
             }
@@ -310,7 +311,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     license_key: key,
-                    hwid: hwid
+                    hwid: hwid,
+                    action: isCheckOnly ? 'info' : 'activate'
                 })
             });
 
@@ -318,15 +320,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (data.success) {
                 if (data.status === 'active') {
-                    // Kích hoạt thành công
+                    // Kích hoạt thành công vào đúng 1 máy
                     showToast('Kích hoạt Key bản quyền thành công!', 'success');
                     activateResult.innerHTML = `
                         <div class="act-card act-success">
                             <div class="act-header">
                                 <div class="act-icon"><i class="fa-solid fa-circle-check"></i></div>
                                 <div>
-                                    <h4 class="act-title">🎉 KÍCH HOẠT THÀNH CÔNG!</h4>
-                                    <p class="act-subtitle">Bản quyền của bạn đã được liên kết với máy tính.</p>
+                                    <h4 class="act-title">🎉 KÍCH HOẠT THÀNH CÔNG (1 KEY / 1 MÁY)!</h4>
+                                    <p class="act-subtitle">Mã Key này đã được gắn cố định với Mã Máy Tính (HWID) của bạn.</p>
                                 </div>
                                 <span class="act-badge badge-active"><i class="fa-solid fa-shield-halved"></i> ĐANG HOẠT ĐỘNG</span>
                             </div>
@@ -340,8 +342,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                     <span class="act-val plan-val">${data.plan_name}</span>
                                 </div>
                                 <div class="act-row">
-                                    <span class="act-label">Mã máy (HWID):</span>
-                                    <span class="act-val code-val">${data.hwid}</span>
+                                    <span class="act-label">Mã máy đã gắn (HWID):</span>
+                                    <span class="act-val code-val" style="color: #34d399;">${data.hwid}</span>
                                 </div>
                                 <div class="act-row">
                                     <span class="act-label">Hạn sử dụng:</span>
@@ -350,19 +352,19 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                             <div class="act-footer">
                                 <i class="fa-solid fa-circle-info"></i>
-                                <span>Bây giờ bạn chỉ cần mở <strong>AutoClash.exe</strong> trên máy tính để bắt đầu cày cuốc tự động ngay!</span>
+                                <span>Key đã liên kết xong! Khởi động <strong>AutoClash.exe</strong> trên máy tính này để bắt đầu auto ngay.</span>
                             </div>
                         </div>
                     `;
                 } else if (data.status === 'available') {
                     // Key còn trống, hợp lệ
-                    showToast('Key hợp lệ và sẵn sàng kích hoạt!', 'success');
+                    showToast('Key hợp lệ và sẵn sàng liên kết với máy tính!', 'success');
                     activateResult.innerHTML = `
                         <div class="act-card act-available">
                             <div class="act-header">
                                 <div class="act-icon" style="color: #3b82f6;"><i class="fa-solid fa-circle-info"></i></div>
                                 <div>
-                                    <h4 class="act-title">MÃ KEY HỢP LỆ & SẴN SÀNG</h4>
+                                    <h4 class="act-title">MÃ KEY HỢP LỆ & SẴN SÀNG KÍCH HOẠT</h4>
                                     <p class="act-subtitle">${data.message}</p>
                                 </div>
                                 <span class="act-badge badge-avail"><i class="fa-solid fa-box-open"></i> CHƯA SỬ DỤNG</span>
@@ -383,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                             <div class="act-footer" style="background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3);">
                                 <i class="fa-solid fa-arrow-up"></i>
-                                <span>Hãy nhập thêm <strong>Mã Máy (HWID)</strong> ở ô phía trên rồi bấm <strong>Kích Hoạt Key Ngay</strong> để hoàn tất!</span>
+                                <span>Để kích hoạt, hãy dán <strong>Mã Máy Tính (HWID)</strong> ở ô phía trên rồi bấm <strong>Kích Hoạt Key Vào Máy Này</strong>!</span>
                             </div>
                         </div>
                     `;
@@ -394,10 +396,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="act-header">
                                 <div class="act-icon"><i class="fa-solid fa-circle-info"></i></div>
                                 <div>
-                                    <h4 class="act-title">THÔNG TIN BẢN QUYỀN</h4>
+                                    <h4 class="act-title">THÔNG TIN BẢN QUYỀN ĐÃ KÍCH HOẠT</h4>
                                     <p class="act-subtitle">${data.message}</p>
                                 </div>
-                                <span class="act-badge badge-used">${data.status === 'used' ? 'ĐÃ KÍCH HOẠT' : 'HẾT HẠN'}</span>
+                                <span class="act-badge badge-used">${data.status === 'used' ? 'ĐÃ GẮN VỚI MÁY' : 'HẾT HẠN'}</span>
                             </div>
                             <div class="act-body">
                                 <div class="act-row">
@@ -410,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 </div>
                                 ${data.user_device_id ? `
                                 <div class="act-row">
-                                    <span class="act-label">Mã máy (HWID):</span>
+                                    <span class="act-label">Mã máy đã gắn (HWID):</span>
                                     <span class="act-val code-val">${data.user_device_id}</span>
                                 </div>` : ''}
                                 ${data.expires_at ? `
@@ -423,15 +425,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
                 }
             } else {
-                showToast(data.message || 'Kích hoạt thất bại!', 'error');
+                showToast(data.message || 'Xác thực thất bại!', 'error');
                 activateResult.innerHTML = `
                     <div class="act-card act-error">
                         <div class="act-header">
-                            <div class="act-icon"><i class="fa-solid fa-circle-xmark"></i></div>
+                            <div class="act-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
                             <div>
-                                <h4 class="act-title">XÁC THỰC THẤT BẠI</h4>
+                                <h4 class="act-title">KHÔNG THỂ KÍCH HOẠT</h4>
                                 <p class="act-subtitle">${data.message || 'Mã Key không hợp lệ hoặc đã xảy ra lỗi.'}</p>
                             </div>
+                        </div>
+                        <div class="act-body" style="font-size: 13.5px; color: var(--text-sub); line-height: 1.5;">
+                            <p><i class="fa-solid fa-circle-exclamation" style="color: #ef4444;"></i> Lưu ý: <strong>Mỗi 1 Key chỉ gắn với 1 Mã Máy Tính (HWID) duy nhất</strong>. Nếu bạn vừa thay đổi phần cứng hoặc cài lại Windows, vui lòng liên hệ Admin qua Zalo để được hỗ trợ chuyển máy.</p>
                         </div>
                     </div>
                 `;

@@ -192,6 +192,15 @@ $plans        = getPlans();
         </div>
 
         <div class="activate-box">
+          <!-- Quy định 1 Key = 1 Máy (HWID) -->
+          <div class="hwid-rule-banner">
+            <div class="rule-icon"><i class="fa-solid fa-link-slash"></i></div>
+            <div class="rule-content">
+              <h4><i class="fa-solid fa-shield-check"></i> Quy Định Bản Quyền: 1 Key Gắn Với 1 Mã Máy Tính (HWID)</h4>
+              <p>Mỗi mã License Key chỉ được kích hoạt và liên kết cố định với <strong>duy nhất 01 máy tính (HWID)</strong>. Không thể dùng chung hoặc chuyển nhượng sang máy khác sau khi đã kích hoạt thành công.</p>
+            </div>
+          </div>
+
           <form id="activateForm" class="activate-form">
             <div class="activate-grid">
               <div class="form-group">
@@ -204,18 +213,18 @@ $plans        = getPlans();
               </div>
 
               <div class="form-group">
-                <label for="activateHwid"><i class="fa-solid fa-laptop-code"></i> Mã Máy Tính (HWID) <span class="opt">(Tùy chọn)</span></label>
+                <label for="activateHwid"><i class="fa-solid fa-laptop-code"></i> Mã Máy Tính (HWID) <span class="req">* (Bắt buộc để kích hoạt)</span></label>
                 <div class="input-with-icon">
                   <i class="fa-solid fa-desktop"></i>
-                  <input type="text" id="activateHwid" placeholder="Nhập mã HWID hiển thị trong AutoClash.exe..." autocomplete="off">
+                  <input type="text" id="activateHwid" placeholder="Dán mã HWID hiển thị trong AutoClash.exe..." autocomplete="off">
                 </div>
-                <small class="field-hint">Mở <strong>AutoClash.exe</strong> để copy mã HWID máy tính của bạn (để trống nếu chỉ muốn tra cứu tình trạng key).</small>
+                <small class="field-hint">Mỗi 1 Key gắn với 1 Mã Máy duy nhất. Mở <strong>AutoClash.exe</strong> để copy mã HWID của máy bạn.</small>
               </div>
             </div>
 
             <div class="activate-actions">
               <button type="submit" class="btn btn-glow btn-lg" id="btnActivateKey">
-                <i class="fa-solid fa-bolt"></i> Kích Hoạt Key Ngay
+                <i class="fa-solid fa-bolt"></i> Kích Hoạt Key Vào Máy Này
               </button>
               <button type="button" class="btn btn-outline btn-lg" id="btnCheckKeyStatus">
                 <i class="fa-solid fa-magnifying-glass"></i> Kiểm Tra Tình Trạng Key

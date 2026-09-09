@@ -28,6 +28,12 @@ if ($db && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $db->prepare("DELETE FROM `keys` WHERE id = ?")->execute([$keyId]);
             $msg = "Đã xóa key khỏi kho.";
         }
+    } elseif ($action === 'reset_hwid') {
+        $keyId = (int)($_POST['key_id'] ?? 0);
+        if ($keyId > 0) {
+            $db->prepare("UPDATE `keys` SET user_device_id = NULL, status = 'available' WHERE id = ?")->execute([$keyId]);
+            $msg = "Đã gỡ Mã Máy Tính (HWID) thành công! Khách hàng có thể kích hoạt lại Key này trên máy mới.";
+        }
     }
 }
 
@@ -178,14 +184,15 @@ if ($db) {
                         <th>Mã License Key</th>
                         <th>Gói</th>
                         <th>Trạng Thái</th>
-                        <th>Đơn Hàng Gán</th>
+                        <th>Mã Máy Đã Gắn (HWID)</th>
+                        <th>Hạn Sử Dụng</th>
                         <th>Ngày Tạo</th>
                         <th>Thao Tác</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (empty($keysList)): ?>
-                        <tr><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 20px;">Kho key trống</td></tr>
+                        <tr><td colspan="8" style="text-align: center; color: var(--text-muted); padding: 20px;">Kho key trống</td></tr>
                     <?php else: ?>
                         <?php foreach ($keysList as $k): ?>
                             <tr>
@@ -194,21 +201,41 @@ if ($db) {
                                 <td><strong><?= htmlspecialchars($k['plan_code']) ?></strong></td>
                                 <td>
                                     <?php if ($k['status'] === 'available'): ?>
-                                        <span class="badge badge-avail">Sẵn sàng</span>
+                                        <span class="badge badge-avail"><i class="fas fa-check"></i> Sẵn sàng</span>
                                     <?php else: ?>
-                                        <span class="badge badge-used">Đã sử dụng</span>
+                                        <span class="badge badge-used"><i class="fas fa-link"></i> Đã gắn máy</span>
                                     <?php endif; ?>
                                 </td>
-                                <td><?= htmlspecialchars($k['order_code'] ?? 'Chưa gán') ?></td>
-                                <td style="font-size: 0.85rem; color: var(--text-muted);"><?= htmlspecialchars($k['created_at']) ?></td>
                                 <td>
-                                    <form method="POST" style="display:inline;" onsubmit="return confirm('Xóa key này?');">
-                                        <input type="hidden" name="action" value="delete_key">
-                                        <input type="hidden" name="key_id" value="<?= $k['id'] ?>">
-                                        <button type="submit" style="background: none; border: none; color: #ef4444; cursor: pointer;">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </form>
+                                    <?php if (!empty($k['user_device_id'])): ?>
+                                        <code style="color: #60a5fa; background: #090d16; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem; border: 1px solid rgba(59,130,246,0.3);"><?= htmlspecialchars($k['user_device_id']) ?></code>
+                                    <?php else: ?>
+                                        <span style="color: var(--text-muted); font-size: 0.85rem;">Chưa gắn máy</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td style="font-size: 0.85rem; color: #34d399;">
+                                    <?= !empty($k['expires_at']) ? htmlspecialchars(date('d/m/Y H:i', strtotime($k['expires_at']))) : '<span style="color: var(--text-muted);">Chưa kích hoạt</span>' ?>
+                                </td>
+                                <td style="font-size: 0.85rem; color: var(--text-muted);"><?= htmlspecialchars(date('d/m/Y', strtotime($k['created_at']))) ?></td>
+                                <td>
+                                    <div style="display: flex; gap: 8px; align-items: center;">
+                                        <?php if (!empty($k['user_device_id'])): ?>
+                                            <form method="POST" style="display:inline;" onsubmit="return confirm('Gỡ mã máy tính (HWID) để khách kích hoạt sang máy khác?');">
+                                                <input type="hidden" name="action" value="reset_hwid">
+                                                <input type="hidden" name="key_id" value="<?= $k['id'] ?>">
+                                                <button type="submit" title="Gỡ HWID để chuyển máy" style="background: rgba(245,158,11,0.15); border: 1px solid #f59e0b; color: #f59e0b; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: 600;">
+                                                    <i class="fas fa-unlink"></i> Gỡ HWID
+                                                </button>
+                                            </form>
+                                        <?php endif; ?>
+                                        <form method="POST" style="display:inline;" onsubmit="return confirm('Xóa key này khỏi kho?');">
+                                            <input type="hidden" name="action" value="delete_key">
+                                            <input type="hidden" name="key_id" value="<?= $k['id'] ?>">
+                                            <button type="submit" title="Xóa key" style="background: none; border: none; color: #ef4444; cursor: pointer; padding: 4px 6px;">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

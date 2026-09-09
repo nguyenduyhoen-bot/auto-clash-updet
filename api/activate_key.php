@@ -62,7 +62,18 @@ try {
     $durationDays = isset($keyRow['duration_days']) ? intval($keyRow['duration_days']) : 30;
     $secretKey    = 'AutoCOC_Sec_2026_!@#';
 
-    // Nếu người dùng chưa nhập HWID -> Trả về thông tin tra cứu tình trạng Key
+    $actionReq = trim($inputData['action'] ?? $_POST['action'] ?? $_GET['action'] ?? '');
+
+    // Nếu người dùng yêu cầu kích hoạt nhưng không nhập HWID
+    if ($actionReq === 'activate' && empty($hwid)) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Vui lòng nhập Mã Máy Tính (HWID)! Quy định: Mỗi 1 Key bản quyền chỉ được kích hoạt và gắn liền với duy nhất 01 Máy tính.'
+        ], JSON_UNESCAPED_UNICODE);
+        exit;
+    }
+
+    // Nếu người dùng chỉ kiểm tra thông tin hoặc chưa nhập HWID
     if (empty($hwid)) {
         if ($keyRow['status'] === 'available') {
             echo json_encode([
@@ -73,7 +84,7 @@ try {
                 'plan_name'     => $planName,
                 'plan_code'     => $keyRow['plan_code'],
                 'duration_days' => $durationDays,
-                'message'       => 'Key hợp lệ và sẵn sàng kích hoạt! Vui lòng nhập thêm Mã máy (HWID) từ AutoClash để kích hoạt ngay.'
+                'message'       => 'Key hợp lệ và chưa kích hoạt! Mỗi 1 Key chỉ gắn với 1 Mã Máy (HWID), hãy nhập Mã máy từ AutoClash để tiến hành liên kết và kích hoạt.'
             ], JSON_UNESCAPED_UNICODE);
             exit;
         } elseif ($keyRow['status'] === 'used') {
@@ -88,7 +99,7 @@ try {
                 'expires_at'     => $keyRow['expires_at'],
                 'message'        => $isExpired 
                     ? 'Key đã hết hạn sử dụng vào ngày ' . date('d/m/Y H:i', strtotime($keyRow['expires_at'])) 
-                    : 'Key này đang hoạt động trên máy: ' . $keyRow['user_device_id'] . ' (Hạn dùng: ' . date('d/m/Y H:i', strtotime($keyRow['expires_at'])) . ')'
+                    : 'Key này đã kích hoạt và gắn cố định với Mã Máy (HWID): ' . $keyRow['user_device_id'] . ' (Hạn dùng: ' . date('d/m/Y H:i', strtotime($keyRow['expires_at'])) . ')'
             ], JSON_UNESCAPED_UNICODE);
             exit;
         } else {
@@ -113,7 +124,7 @@ try {
             $expiresAt = '2099-12-31 23:59:59';
         }
 
-        // Cập nhật gán mã máy HWID và kích hoạt key
+        // Cập nhật gán cố định mã máy HWID và kích hoạt key (Mỗi 1 Key gắn với 1 HWID)
         $updateStmt = $db->prepare("
             UPDATE `keys` 
             SET `status` = 'used', 
@@ -130,25 +141,27 @@ try {
         echo json_encode([
             'success'       => true,
             'status'        => 'active',
-            'message'       => 'Kích hoạt bản quyền thành công! Chúc bạn chơi game vui vẻ.',
+            'message'       => 'Kích hoạt bản quyền thành công! Key đã được gắn cố định với máy tính này (1 Key / 1 Máy tính).',
             'license_key'   => $keyRow['license_key'],
             'plan_name'     => $planName,
             'plan_code'     => $keyRow['plan_code'],
             'duration_days' => $durationDays,
             'expires_at'    => $expiresAt,
             'hwid'          => $hwid,
-            'token'         => $token
+            'token'         => $token,
+            'binding_note'  => 'Mỗi 1 key gắn với 1 Mã Máy Tính (HWID)'
         ], JSON_UNESCAPED_UNICODE);
         exit;
     }
 
     // 3. Trường hợp: Key đã từng được kích hoạt trước đó
     if ($keyRow['status'] === 'used') {
-        // Kiểm tra xem có đúng máy tính đã đăng ký không
+        // Kiểm tra xem có đúng máy tính đã đăng ký không (1 Key = 1 HWID)
         if ($keyRow['user_device_id'] !== $hwid) {
             echo json_encode([
                 'success' => false,
-                'message' => 'Key này đã được kích hoạt trên thiết bị khác! Mỗi key chỉ áp dụng cho 1 máy tính.'
+                'status'  => 'device_mismatch',
+                'message' => 'Key này đã được kích hoạt và gắn cố định với một Mã Máy Tính khác! Quy định: Mỗi 1 Key chỉ sử dụng cho 01 máy tính duy nhất (không thể dùng chung máy khác).'
             ], JSON_UNESCAPED_UNICODE);
             exit;
         }

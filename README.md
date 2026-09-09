@@ -42,9 +42,8 @@ define('DB_PASS', '');
 
 ### 3. Đăng nhập Admin
 - Đường dẫn: `http://localhost/web/admin/login.php`
-- Tài khoản mặc định:
-  - **Tên đăng nhập:** `admin`
-  - **Mật khẩu:** `admin123`
+- Tài khoản và mật khẩu quản trị viên được thiết lập riêng, vui lòng không chia sẻ ra bên ngoài.
+
 
 ---
 

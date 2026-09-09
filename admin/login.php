@@ -28,14 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        // Fallback default admin nếu DB chưa kết nối
-        if (!$authenticated && $username === 'admin' && $password === 'admin123') {
-            $authenticated = true;
-            $_SESSION['admin_logged_in'] = true;
-            $_SESSION['admin_user'] = 'admin';
-            $_SESSION['admin_name'] = 'Quản Trị Viên AutoClash';
-        }
-
         if ($authenticated) {
             header('Location: index.php');
             exit;
@@ -175,12 +167,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="POST">
         <div class="form-group">
             <label><i class="fas fa-user"></i> Tên đăng nhập</label>
-            <input type="text" name="username" placeholder="Nhập username (mặc định: admin)" required autofocus>
+            <input type="text" name="username" placeholder="Nhập tên đăng nhập" required autofocus>
         </div>
 
         <div class="form-group">
             <label><i class="fas fa-lock"></i> Mật khẩu</label>
-            <input type="password" name="password" placeholder="Nhập password (mặc định: admin123)" required>
+            <input type="password" name="password" placeholder="Nhập mật khẩu" required>
         </div>
 
         <button type="submit" class="btn-submit">
@@ -189,8 +181,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 
     <div class="hint">
-        <p>Mặc định: <strong>admin</strong> / <strong>admin123</strong></p>
-        <p style="margin-top: 6px;"><a href="../index.php"><i class="fas fa-arrow-left"></i> Quay lại trang chủ</a></p>
+        <p><a href="../index.php"><i class="fas fa-arrow-left"></i> Quay lại trang chủ</a></p>
     </div>
 </div>
 

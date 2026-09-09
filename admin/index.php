@@ -77,6 +77,47 @@ if ($db && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $db->prepare("INSERT INTO settings (key_name, key_value) VALUES ('zalo_contact', ?) ON DUPLICATE KEY UPDATE key_value = VALUES(key_value)")->execute([$zalo]);
 
         $actionMsg = "Đã lưu cài đặt thanh toán và liên hệ thành công!";
+    } elseif ($action === 'change_password') {
+        $currentPass = trim($_POST['current_password'] ?? '');
+        $newPass = trim($_POST['new_password'] ?? '');
+        $confirmPass = trim($_POST['confirm_password'] ?? '');
+        $currentAdminUser = $_SESSION['admin_user'] ?? 'admin';
+
+        if (empty($currentPass) || empty($newPass) || empty($confirmPass)) {
+            $dbError = 'Vui lòng điền đầy đủ các trường thông tin đổi mật khẩu!';
+        } elseif (strlen($newPass) < 6) {
+            $dbError = 'Mật khẩu mới phải có ít nhất 6 ký tự!';
+        } elseif ($newPass !== $confirmPass) {
+            $dbError = 'Mật khẩu xác nhận không trùng khớp với mật khẩu mới!';
+        } else {
+            // Kiểm tra mật khẩu hiện tại trong DB
+            try {
+                $stmt = $db->prepare("SELECT * FROM admins WHERE username = ? LIMIT 1");
+                $stmt->execute([$currentAdminUser]);
+                $admin = $stmt->fetch();
+
+                $isPasswordValid = false;
+                if ($admin && !empty($admin['password'])) {
+                    $isPasswordValid = password_verify($currentPass, $admin['password']);
+                }
+
+                if (!$isPasswordValid) {
+                    $dbError = 'Mật khẩu hiện tại không chính xác!';
+                } else {
+                    $newHash = password_hash($newPass, PASSWORD_DEFAULT);
+                    if ($admin) {
+                        $stmtUpdate = $db->prepare("UPDATE admins SET password = ? WHERE username = ?");
+                        $stmtUpdate->execute([$newHash, $currentAdminUser]);
+                    } else {
+                        $stmtInsert = $db->prepare("INSERT INTO admins (username, password, full_name) VALUES (?, ?, 'Quản Trị Viên AutoClash')");
+                        $stmtInsert->execute([$currentAdminUser, $newHash]);
+                    }
+                    $actionMsg = "Đổi mật khẩu thành công! Bạn có thể sử dụng mật khẩu mới cho các lần đăng nhập tiếp theo.";
+                }
+            } catch (Exception $e) {
+                $dbError = 'Lỗi cập nhật mật khẩu: ' . $e->getMessage();
+            }
+        }
     }
 }
 
@@ -300,6 +341,7 @@ if ($db) {
     <div class="nav-links">
         <a href="index.php" class="active"><i class="fas fa-shopping-cart"></i> Đơn Hàng</a>
         <a href="keys.php"><i class="fas fa-key"></i> Kho Key</a>
+        <a href="#change-password"><i class="fas fa-lock"></i> Đổi Mật Khẩu</a>
         <a href="../index.php" target="_blank"><i class="fas fa-external-link-alt"></i> Xem Trang Chủ</a>
         <span style="color: var(--text-muted);">|</span>
         <span style="color: #fff; font-size: 0.9rem;"><i class="fas fa-user-circle"></i> <?= htmlspecialchars($_SESSION['admin_name'] ?? 'Admin') ?></span>
@@ -480,7 +522,66 @@ if ($db) {
         </form>
     </div>
 
+    <!-- Change Password Card -->
+    <div class="card" id="change-password">
+        <div class="card-header">
+            <h3><i class="fas fa-key" style="color: var(--primary);"></i> Đổi Mật Khẩu Quản Trị</h3>
+            <span>Cập nhật mật khẩu đăng nhập Admin (Tài khoản: <strong style="color: var(--primary);"><?= htmlspecialchars($_SESSION['admin_user'] ?? 'admin') ?></strong>)</span>
+        </div>
+
+        <form method="POST" autocomplete="off">
+            <input type="hidden" name="action" value="change_password">
+            <div class="form-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+                <div class="form-group">
+                    <label><i class="fas fa-lock-open"></i> Mật khẩu hiện tại</label>
+                    <div style="position: relative;">
+                        <input type="password" name="current_password" id="curr_pwd" placeholder="Nhập mật khẩu hiện tại" required style="padding-right: 42px;">
+                        <span onclick="togglePwd('curr_pwd', this)" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-muted);" title="Ẩn/hiện mật khẩu">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-key"></i> Mật khẩu mới</label>
+                    <div style="position: relative;">
+                        <input type="password" name="new_password" id="new_pwd" placeholder="Tối thiểu 6 ký tự" minlength="6" required style="padding-right: 42px;">
+                        <span onclick="togglePwd('new_pwd', this)" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-muted);" title="Ẩn/hiện mật khẩu">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-shield-alt"></i> Xác nhận mật khẩu mới</label>
+                    <div style="position: relative;">
+                        <input type="password" name="confirm_password" id="confirm_pwd" placeholder="Nhập lại mật khẩu mới" minlength="6" required style="padding-right: 42px;">
+                        <span onclick="togglePwd('confirm_pwd', this)" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-muted);" title="Ẩn/hiện mật khẩu">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-approve" style="padding: 10px 24px; font-size: 0.95rem; background: #f59e0b; color: #0b0f19; font-weight: 700;">
+                <i class="fas fa-check-double"></i> Cập Nhật Mật Khẩu Mới
+            </button>
+        </form>
+    </div>
+
 </div>
 
+<script>
+function togglePwd(id, el) {
+    const input = document.getElementById(id);
+    const icon = el.querySelector('i');
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+}
+</script>
 </body>
 </html>

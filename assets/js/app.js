@@ -246,6 +246,219 @@ document.addEventListener('DOMContentLoaded', () => {
             lookupResult.innerHTML = `<div class="lookup-empty"><i class="fa-solid fa-triangle-exclamation"></i> Lỗi kết nối: ${err.message}</div>`;
         }
     }
+
+    // 8. Online Key Activation & Verification Form
+    const activateForm = document.getElementById('activateForm');
+    const activateKey = document.getElementById('activateKey');
+    const activateHwid = document.getElementById('activateHwid');
+    const activateResult = document.getElementById('activateResult');
+    const btnActivateKey = document.getElementById('btnActivateKey');
+    const btnCheckKeyStatus = document.getElementById('btnCheckKeyStatus');
+
+    if (activateForm) {
+        activateForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const key = activateKey ? activateKey.value.trim() : '';
+            const hwid = activateHwid ? activateHwid.value.trim() : '';
+
+            if (!key) {
+                showToast('Vui lòng nhập mã License Key!', 'error');
+                return;
+            }
+
+            if (!hwid) {
+                showToast('Vui lòng nhập Mã máy (HWID) từ AutoClash.exe để kích hoạt!', 'error');
+                if (activateHwid) activateHwid.focus();
+                return;
+            }
+
+            await executeKeyAction(key, hwid, false);
+        });
+    }
+
+    if (btnCheckKeyStatus) {
+        btnCheckKeyStatus.addEventListener('click', async () => {
+            const key = activateKey ? activateKey.value.trim() : '';
+            const hwid = activateHwid ? activateHwid.value.trim() : '';
+
+            if (!key) {
+                showToast('Vui lòng nhập mã License Key để kiểm tra!', 'error');
+                if (activateKey) activateKey.focus();
+                return;
+            }
+
+            await executeKeyAction(key, hwid, true);
+        });
+    }
+
+    async function executeKeyAction(key, hwid, isCheckOnly) {
+        if (!activateResult) return;
+
+        activateResult.style.display = 'block';
+        activateResult.innerHTML = '<div class="activate-loading"><i class="fa-solid fa-spinner fa-spin"></i> Đang kết nối máy chủ xác thực bản quyền...</div>';
+
+        const btn = isCheckOnly ? btnCheckKeyStatus : btnActivateKey;
+        const oldText = btn ? btn.innerHTML : '';
+        if (btn) {
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang xử lý...';
+            btn.disabled = true;
+        }
+
+        try {
+            const res = await fetch('api/activate_key.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    license_key: key,
+                    hwid: hwid
+                })
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                if (data.status === 'active') {
+                    // Kích hoạt thành công
+                    showToast('Kích hoạt Key bản quyền thành công!', 'success');
+                    activateResult.innerHTML = `
+                        <div class="act-card act-success">
+                            <div class="act-header">
+                                <div class="act-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                <div>
+                                    <h4 class="act-title">🎉 KÍCH HOẠT THÀNH CÔNG!</h4>
+                                    <p class="act-subtitle">Bản quyền của bạn đã được liên kết với máy tính.</p>
+                                </div>
+                                <span class="act-badge badge-active"><i class="fa-solid fa-shield-halved"></i> ĐANG HOẠT ĐỘNG</span>
+                            </div>
+                            <div class="act-body">
+                                <div class="act-row">
+                                    <span class="act-label">Mã Key:</span>
+                                    <span class="act-val code-val">${data.license_key}</span>
+                                </div>
+                                <div class="act-row">
+                                    <span class="act-label">Gói bản quyền:</span>
+                                    <span class="act-val plan-val">${data.plan_name}</span>
+                                </div>
+                                <div class="act-row">
+                                    <span class="act-label">Mã máy (HWID):</span>
+                                    <span class="act-val code-val">${data.hwid}</span>
+                                </div>
+                                <div class="act-row">
+                                    <span class="act-label">Hạn sử dụng:</span>
+                                    <span class="act-val exp-val">${data.expires_at}</span>
+                                </div>
+                            </div>
+                            <div class="act-footer">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span>Bây giờ bạn chỉ cần mở <strong>AutoClash.exe</strong> trên máy tính để bắt đầu cày cuốc tự động ngay!</span>
+                            </div>
+                        </div>
+                    `;
+                } else if (data.status === 'available') {
+                    // Key còn trống, hợp lệ
+                    showToast('Key hợp lệ và sẵn sàng kích hoạt!', 'success');
+                    activateResult.innerHTML = `
+                        <div class="act-card act-available">
+                            <div class="act-header">
+                                <div class="act-icon" style="color: #3b82f6;"><i class="fa-solid fa-circle-info"></i></div>
+                                <div>
+                                    <h4 class="act-title">MÃ KEY HỢP LỆ & SẴN SÀNG</h4>
+                                    <p class="act-subtitle">${data.message}</p>
+                                </div>
+                                <span class="act-badge badge-avail"><i class="fa-solid fa-box-open"></i> CHƯA SỬ DỤNG</span>
+                            </div>
+                            <div class="act-body">
+                                <div class="act-row">
+                                    <span class="act-label">Mã Key:</span>
+                                    <span class="act-val code-val">${data.license_key}</span>
+                                </div>
+                                <div class="act-row">
+                                    <span class="act-label">Gói bản quyền:</span>
+                                    <span class="act-val plan-val">${data.plan_name}</span>
+                                </div>
+                                <div class="act-row">
+                                    <span class="act-label">Thời hạn:</span>
+                                    <span class="act-val">${data.duration_days > 0 ? data.duration_days + ' Ngày' : 'Vĩnh Viễn'}</span>
+                                </div>
+                            </div>
+                            <div class="act-footer" style="background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3);">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                <span>Hãy nhập thêm <strong>Mã Máy (HWID)</strong> ở ô phía trên rồi bấm <strong>Kích Hoạt Key Ngay</strong> để hoàn tất!</span>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // Thông tin key đang dùng
+                    activateResult.innerHTML = `
+                        <div class="act-card act-info">
+                            <div class="act-header">
+                                <div class="act-icon"><i class="fa-solid fa-circle-info"></i></div>
+                                <div>
+                                    <h4 class="act-title">THÔNG TIN BẢN QUYỀN</h4>
+                                    <p class="act-subtitle">${data.message}</p>
+                                </div>
+                                <span class="act-badge badge-used">${data.status === 'used' ? 'ĐÃ KÍCH HOẠT' : 'HẾT HẠN'}</span>
+                            </div>
+                            <div class="act-body">
+                                <div class="act-row">
+                                    <span class="act-label">Mã Key:</span>
+                                    <span class="act-val code-val">${data.license_key}</span>
+                                </div>
+                                <div class="act-row">
+                                    <span class="act-label">Gói bản quyền:</span>
+                                    <span class="act-val plan-val">${data.plan_name}</span>
+                                </div>
+                                ${data.user_device_id ? `
+                                <div class="act-row">
+                                    <span class="act-label">Mã máy (HWID):</span>
+                                    <span class="act-val code-val">${data.user_device_id}</span>
+                                </div>` : ''}
+                                ${data.expires_at ? `
+                                <div class="act-row">
+                                    <span class="act-label">Hạn sử dụng:</span>
+                                    <span class="act-val exp-val">${data.expires_at}</span>
+                                </div>` : ''}
+                            </div>
+                        </div>
+                    `;
+                }
+            } else {
+                showToast(data.message || 'Kích hoạt thất bại!', 'error');
+                activateResult.innerHTML = `
+                    <div class="act-card act-error">
+                        <div class="act-header">
+                            <div class="act-icon"><i class="fa-solid fa-circle-xmark"></i></div>
+                            <div>
+                                <h4 class="act-title">XÁC THỰC THẤT BẠI</h4>
+                                <p class="act-subtitle">${data.message || 'Mã Key không hợp lệ hoặc đã xảy ra lỗi.'}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            activateResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        } catch (err) {
+            showToast('Lỗi kết nối máy chủ: ' + err.message, 'error');
+            activateResult.innerHTML = `
+                <div class="act-card act-error">
+                    <div class="act-header">
+                        <div class="act-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div>
+                            <h4 class="act-title">LỖI KẾT NỐI MÁY CHỦ</h4>
+                            <p class="act-subtitle">${err.message}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } finally {
+            if (btn) {
+                btn.innerHTML = oldText;
+                btn.disabled = false;
+            }
+        }
+    }
 });
 
 // Toast notification function

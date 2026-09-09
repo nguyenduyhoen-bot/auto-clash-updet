@@ -80,7 +80,7 @@ function getSetting($key, $default = '') {
         'bank_owner'       => 'NGUYEN DUY THIEN',
         'zalo_contact'     => '0338996239',
         'telegram_contact' => 'https://t.me/autoclashvn',
-        'download_link'    => 'AutoClash_Setup.exe',
+        'download_link'    => 'download.php',
         'app_version'      => 'v2.5.0'
     ];
 

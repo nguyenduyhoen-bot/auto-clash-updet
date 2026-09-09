@@ -128,6 +128,7 @@ if ($db) {
     <div class="nav-links">
         <a href="index.php"><i class="fas fa-shopping-cart"></i> Đơn Hàng</a>
         <a href="keys.php" class="active"><i class="fas fa-key"></i> Kho Key</a>
+        <a href="index.php#change-password"><i class="fas fa-lock"></i> Đổi Mật Khẩu</a>
         <a href="../index.php" target="_blank"><i class="fas fa-external-link-alt"></i> Xem Trang Chủ</a>
         <a href="logout.php" style="color: #f87171;"><i class="fas fa-sign-out-alt"></i> Thoát</a>
     </div>

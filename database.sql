@@ -52,8 +52,6 @@ CREATE TABLE IF NOT EXISTS `admins` (
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Mật khẩu mặc định: admin123 (được hash bằng password_hash BCRYPT)
--- Bạn có thể đăng nhập bằng username: admin / password: admin123
 INSERT INTO `admins` (`id`, `username`, `password`, `full_name`) VALUES
 (1, 'admin', '$2y$10$tZ2y.Gq6.hZz94WqLw758eQy6XU4jN6rIkgW7eT8aZ4M.Xp3O97d2', 'Quản Trị Viên AutoClash')
 ON DUPLICATE KEY UPDATE `username` = VALUES(`username`);

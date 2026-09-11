@@ -1,9 +1,0 @@
-<?php
-require_once __DIR__ . '/../config/db.php';
-
-function checkAdminAuth() {
-    if (empty($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-        header('Location: login.php');
-        exit;
-    }
-}

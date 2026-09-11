@@ -38,11 +38,9 @@ $plans        = getPlans();
       <a href="#hero" class="nav-logo">
         <img src="assets/img/logo.png" alt="AutoClash Logo" class="site-logo-img">
         <div class="logo-text">Auto<span>Clash</span></div>
-        <span class="badge-version"><span class="pulse-dot-sm"></span><?= htmlspecialchars($appVersion) ?></span>
       </a>
       <nav class="nav-links">
         <a href="#pricing">Bảng giá Key</a>
-        <a href="#license-hub">Kích hoạt & Tra cứu</a>
         <a href="#download">Tải bộ cài</a>
         <a href="#guide">Hướng dẫn</a>
         <a href="#changelog">Nhật ký cập nhật</a>
@@ -59,7 +57,6 @@ $plans        = getPlans();
   <!-- Mobile Menu Dropdown -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#pricing" class="mobile-link">Bảng giá Key</a>
-    <a href="#license-hub" class="mobile-link">Kích hoạt & Tra cứu</a>
     <a href="#download" class="mobile-link">Tải bộ cài</a>
     <a href="#guide" class="mobile-link">Hướng dẫn</a>
     <a href="#changelog" class="mobile-link">Nhật ký cập nhật</a>
@@ -154,112 +151,7 @@ $plans        = getPlans();
       </div>
     </section>
 
-    <!-- Unified License Hub: Kích Hoạt & Tra Cứu Key -->
-    <section id="license-hub" class="section license-section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag"><i class="fa-solid fa-shield-halved"></i> Trung Tâm Bản Quyền</div>
-          <h2 class="section-title">Kích Hoạt & <span class="gradient-text">Tra Cứu Key Bản Quyền</span></h2>
-          <p class="section-subtitle">
-            Liên kết mã License Key với máy tính (HWID) hoặc tra cứu mã đơn hàng nhanh chóng, tự động 100%.
-          </p>
-        </div>
 
-        <div class="license-hub-card">
-          <!-- Tab Navigation -->
-          <div class="license-tabs">
-            <button type="button" class="tab-btn active" id="tabBtnActivate" onclick="switchLicenseTab('activate')">
-              <i class="fa-solid fa-bolt"></i> <span>Kích Hoạt Key Vào Máy</span>
-            </button>
-            <button type="button" class="tab-btn" id="tabBtnLookup" onclick="switchLicenseTab('lookup')">
-              <i class="fa-solid fa-magnifying-glass"></i> <span>Tra Cứu Đơn Hàng & Key</span>
-            </button>
-          </div>
-
-          <!-- Tab Content 1: Kích Hoạt Key -->
-          <div class="tab-pane active" id="paneActivate">
-            <div class="hwid-rule-banner">
-              <div class="rule-icon"><i class="fa-solid fa-link-slash"></i></div>
-              <div class="rule-content">
-                <h4>Quy Định Bản Quyền: 1 Key Gắn Cố Định Với 1 Mã Máy Tính (HWID)</h4>
-                <p>Mỗi mã License Key chỉ được liên kết với <strong>01 máy tính (HWID)</strong>. Mở file <strong>AutoClash.exe</strong> để lấy mã HWID máy bạn.</p>
-              </div>
-            </div>
-
-            <form id="activateForm" class="activate-form">
-              <div class="activate-grid">
-                <div class="form-group">
-                  <label for="activateKey"><i class="fa-solid fa-key"></i> Mã License Key <span class="req">*</span></label>
-                  <div class="input-with-icon">
-                    <i class="fa-solid fa-barcode"></i>
-                    <input type="text" id="activateKey" placeholder="Ví dụ: AC-1MONTH-9921-7782-ABCD" required autocomplete="off">
-                  </div>
-                  <small class="field-hint">Mã Key nhận được sau khi thanh toán hoặc Zalo Admin.</small>
-                </div>
-
-                <div class="form-group">
-                  <label for="activateHwid"><i class="fa-solid fa-laptop-code"></i> Mã Máy Tính (HWID) <span class="req">*</span></label>
-                  <div class="input-with-icon">
-                    <i class="fa-solid fa-desktop"></i>
-                    <input type="text" id="activateHwid" placeholder="Dán mã HWID hiển thị trong AutoClash.exe..." autocomplete="off">
-                  </div>
-                  <small class="field-hint">Mở AutoClash.exe để copy mã HWID của thiết bị.</small>
-                </div>
-              </div>
-
-              <div class="activate-actions">
-                <button type="submit" class="btn btn-glow btn-lg" id="btnActivateKey">
-                  <i class="fa-solid fa-bolt"></i> Kích Hoạt Key Vào Máy Này
-                </button>
-                <button type="button" class="btn btn-outline btn-lg" id="btnCheckKeyStatus">
-                  <i class="fa-solid fa-magnifying-glass"></i> Kiểm Tra Tình Trạng Key
-                </button>
-              </div>
-            </form>
-
-            <!-- Kết quả Kích hoạt -->
-            <div id="activateResult" class="activate-result" style="display: none;"></div>
-
-            <!-- Hướng dẫn nhanh lấy HWID -->
-            <div class="hwid-quick-guide">
-              <div class="guide-mini-header">
-                <i class="fa-solid fa-circle-question"></i> Cách lấy mã HWID và sử dụng key:
-              </div>
-              <div class="guide-mini-steps">
-                <div class="mini-step">
-                  <span class="s-num">1</span>
-                  <span>Mở <strong>AutoClash.exe</strong> &rarr; Copy dòng <strong>Mã Máy (HWID)</strong>.</span>
-                </div>
-                <div class="mini-step">
-                  <span class="s-num">2</span>
-                  <span>Dán vào ô trên cùng License Key &rarr; Bấm <strong>Kích Hoạt Key</strong>.</span>
-                </div>
-                <div class="mini-step">
-                  <span class="s-num">3</span>
-                  <span>Copy <strong>Mã Kích Hoạt</strong> dán vào tool hoặc tải file <strong>license.key</strong> bỏ vào thư mục tool rồi bấm <strong>[Vào tool]</strong>!</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tab Content 2: Tra Cứu Đơn Hàng & Key -->
-          <div class="tab-pane" id="paneLookup" style="display: none;">
-            <p class="tab-subdesc">Nhập Mã đơn hàng (ví dụ: AC7892) hoặc Số điện thoại / Zalo bạn đã đặt mua để lấy lại mã key:</p>
-            <form id="lookupForm" class="lookup-form">
-              <div class="lookup-input-group">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="lookupQuery" placeholder="Nhập Mã đơn (VD: AC7892) hoặc SĐT/Zalo..." required>
-                <button type="submit" class="btn btn-primary" id="btnLookup">
-                  <i class="fa-solid fa-search"></i> Tra Cứu Ngay
-                </button>
-              </div>
-            </form>
-
-            <div id="lookupResult" class="lookup-result" style="display: none;"></div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Download Section -->
     <section id="download" class="section download-section">
@@ -565,7 +457,6 @@ $plans        = getPlans();
         <h4>Liên Kết Nhanh</h4>
         <div class="f-links-grid">
           <a href="#pricing"><i class="fa-solid fa-angle-right"></i> Bảng Giá Key</a>
-          <a href="#license-hub"><i class="fa-solid fa-angle-right"></i> Kích Hoạt & Tra Cứu Key</a>
           <a href="#download"><i class="fa-solid fa-angle-right"></i> Tải Bộ Cài Đặt</a>
           <a href="#guide"><i class="fa-solid fa-angle-right"></i> Hướng Dẫn Cài Đặt</a>
         </div>

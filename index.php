@@ -6,9 +6,16 @@ $bankId       = getSetting('bank_id', 'MBBank');
 $bankAccount  = getSetting('bank_account', '0338996239');
 $bankOwner    = getSetting('bank_owner', 'NGUYEN DUY THIEN');
 $zaloContact  = getSetting('zalo_contact', '0338996239');
-$appVersion   = getSetting('app_version', 'v2.5.5');
 $downloadLink = getSetting('download_link', 'download.php');
 $plans        = getPlans();
+
+// Tự động lấy danh sách phát hành chính thức từ GitHub
+$githubReleases = getGitHubReleases('nguyenduyhoen-bot/auto-clash-updet');
+if (!empty($githubReleases[0]['tag_name'])) {
+    $appVersion = $githubReleases[0]['tag_name'];
+} else {
+    $appVersion = getSetting('app_version', 'v1.1.3');
+}
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -88,12 +95,6 @@ $plans        = getPlans();
             <i class="fa-solid fa-bolt"></i> Bảng Giá & Mua Key
           </a>
         </div>
-        <div class="hero-highlights">
-          <div class="highlight-item"><i class="fa-solid fa-shield-halved"></i> An Toàn Tuyệt Đối</div>
-          <div class="highlight-item"><i class="fa-solid fa-wifi"></i> Tự Kết Nối Lại Khi Mất Mạng</div>
-          <div class="highlight-item"><i class="fa-solid fa-rotate"></i> Tự Động Cập Nhật Từ Xa</div>
-        </div>
-      </div>
     </section>
 
     <!-- Pricing Section -->
@@ -229,109 +230,116 @@ $plans        = getPlans();
       </div>
     </section>
 
-    <!-- Changelog Section -->
+    <!-- Changelog Section: Đồng bộ tự động từ GitHub Releases -->
     <section id="changelog" class="section changelog-section">
       <div class="container">
         <div class="section-header">
-          <div class="section-tag"><i class="fa-solid fa-clock-rotate-left"></i> Nhật Ký Cập Nhật</div>
-          <h2 class="section-title">Lịch Sử Cập Nhật & <span class="gradient-text">Nâng Cấp Phiên Bản</span></h2>
+          <div class="section-tag"><i class="fa-brands fa-github"></i> Dữ Liệu Phát Hành GitHub</div>
+          <h2 class="section-title">Nhật Ký Cập Nhật & <span class="gradient-text">Lịch Sử Phiên Bản</span></h2>
           <p class="section-subtitle">
-            Lộ trình phát triển và các tính năng mới nhất được cập nhật tự động từ xa cho AutoClash.
+            Toàn bộ các tính năng mới và bản vá lỗi được đồng bộ tự động từ kho lưu trữ GitHub 
+            <a href="https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases" target="_blank" style="color: #60a5fa; font-weight: 600; text-decoration: none;">
+              nguyenduyhoen-bot/auto-clash-updet <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 11px;"></i>
+            </a>
           </p>
         </div>
 
-        <div class="changelog-timeline">
-          <!-- Release v2.5.5 (Latest) -->
-          <div class="changelog-card current-release">
-            <div class="changelog-badge-row">
-              <span class="badge-latest"><i class="fa-solid fa-sparkles"></i> MỚI NHẤT</span>
-              <span class="version-tag">Phiên bản v2.5.5</span>
-              <span class="release-date"><i class="fa-regular fa-calendar-check"></i> 10/09/2026</span>
-            </div>
-            <h3 class="changelog-headline">Cập Nhật Kích Hoạt Bản Quyền Qua Website & Tối Ưu Hóa Giao Diện</h3>
-            <div class="changelog-grid">
-              <div class="change-item">
-                <div class="change-icon"><i class="fa-solid fa-globe"></i></div>
-                <div class="change-text">
-                  <strong>Hướng Dẫn Kích Hoạt Qua Website:</strong>
-                  <p>Bảng kích hoạt trên tool hướng dẫn truy cập website để nhận key và kích hoạt bản quyền tự động.</p>
-                </div>
+        <div class="changelog-timeline" id="changelogTimeline" data-repo="nguyenduyhoen-bot/auto-clash-updet">
+          <?php if (empty($githubReleases)): ?>
+            <div class="changelog-card current-release">
+              <div class="changelog-badge-row">
+                <span class="badge-latest"><i class="fa-solid fa-sparkles"></i> MỚI NHẤT</span>
+                <span class="version-tag">Phiên bản v1.1.3</span>
+                <span class="release-date"><i class="fa-regular fa-calendar-check"></i> 11/09/2026</span>
               </div>
-              <div class="change-item">
-                <div class="change-icon"><i class="fa-solid fa-bolt"></i></div>
-                <div class="change-text">
-                  <strong>Fix Lỗi Padding & Kích Hoạt 1-Click:</strong>
-                  <p>Khắc phục triệt để lỗi định dạng key; bổ sung file <code>license.key</code> tự động đồng bộ.</p>
-                </div>
-              </div>
-              <div class="change-item">
-                <div class="change-icon"><i class="fa-solid fa-cloud-arrow-down"></i></div>
-                <div class="change-text">
-                  <strong>Tự Động Cập Nhật Từ Xa:</strong>
-                  <p>Trình Updater từ xa nhận diện phiên bản mới và tải gói cập nhật nhanh chóng không bị lỗi cache.</p>
-                </div>
-              </div>
-              <div class="change-item">
-                <div class="change-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <div class="change-text">
-                  <strong>Bảo Mật Gắn Key 1:1 Tuyệt Đối:</strong>
-                  <p>Chống chia sẻ key trái phép, bảo vệ quyền lợi người dùng và vận hành mượt mà.</p>
+              <h3 class="changelog-headline">AutoClash v1.1.3 - Delta Update</h3>
+              <div class="changelog-grid">
+                <div class="change-item">
+                  <div class="change-icon"><i class="fa-solid fa-rocket"></i></div>
+                  <div class="change-text">
+                    <p>Cập nhật siêu tốc các file sửa lỗi, không cần tải lại toàn bộ gói cài đặt nặng.</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          <?php else: ?>
+            <?php foreach ($githubReleases as $idx => $rel): ?>
+              <?php 
+                $isLatest = ($idx === 0);
+                $tagName = $rel['tag_name'] ?? 'v1.0.0';
+                $relName = !empty($rel['name']) ? $rel['name'] : "AutoClash {$tagName}";
+                $pubDate = !empty($rel['published_at']) ? date('d/m/Y', strtotime($rel['published_at'])) : date('d/m/Y');
+                $bodyText = $rel['body'] ?? '';
+                $rawLines = explode("\n", str_replace("\r", "", $bodyText));
+                
+                $headline = $relName;
+                $bullets = [];
+                foreach ($rawLines as $line) {
+                    $trimLine = trim($line);
+                    if (empty($trimLine)) continue;
+                    
+                    if (str_starts_with($trimLine, '#')) {
+                        $clean = trim(ltrim($trimLine, '# '));
+                        if (!empty($clean) && $clean !== $tagName && $headline === $relName) {
+                            $headline = $clean;
+                        }
+                    } elseif (str_starts_with($trimLine, '-') || str_starts_with($trimLine, '*')) {
+                        $bullets[] = trim(ltrim($trimLine, '-* '));
+                    } else {
+                        $bullets[] = $trimLine;
+                    }
+                }
+              ?>
+              <div class="changelog-card <?= $isLatest ? 'current-release' : '' ?>">
+                <div class="changelog-badge-row">
+                  <?php if ($isLatest): ?>
+                    <span class="badge-latest"><i class="fa-solid fa-sparkles"></i> MỚI NHẤT</span>
+                  <?php else: ?>
+                    <span class="badge-stable"><i class="fa-solid fa-shield-halved"></i> ỔN ĐỊNH</span>
+                  <?php endif; ?>
+                  <span class="version-tag"><?= htmlspecialchars($tagName) ?></span>
+                  <span class="release-date"><i class="fa-regular fa-calendar-check"></i> <?= htmlspecialchars($pubDate) ?></span>
+                </div>
+                
+                <h3 class="changelog-headline"><?= htmlspecialchars($headline) ?></h3>
 
-          <!-- Release v2.5.4 -->
-          <div class="changelog-card">
-            <div class="changelog-badge-row">
-              <span class="badge-stable"><i class="fa-solid fa-shield"></i> ỔN ĐỊNH</span>
-              <span class="version-tag">Phiên bản v2.5.4</span>
-              <span class="release-date"><i class="fa-regular fa-calendar-check"></i> 10/09/2026</span>
-            </div>
-            <h3 class="changelog-headline">Chuẩn Hóa Thuật Toán Chữ Ký RSA-PSS SHA256 Kích Hoạt Trực Tuyến</h3>
-            <div class="changelog-grid">
-              <div class="change-item">
-                <div class="change-icon"><i class="fa-solid fa-key"></i></div>
-                <div class="change-text">
-                  <strong>Đồng Bộ Khóa Công Khai (Public Key):</strong>
-                  <p>Đồng bộ chữ ký số RSA-PSS giữa API máy chủ và phần mềm AutoClash trên Windows.</p>
-                </div>
-              </div>
-              <div class="change-item">
-                <div class="change-icon"><i class="fa-solid fa-folder-tree"></i></div>
-                <div class="change-text">
-                  <strong>Trọn Bộ 5 Thư Mục Cốt Lõi:</strong>
-                  <p>Gói cài đặt tích hợp sẵn đầy đủ: <code>attack_script</code>, <code>cv2</code>, <code>numps</code>, <code>templates</code>, <code>tkl_data</code>.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+                <?php if (!empty($bullets)): ?>
+                  <div class="changelog-grid">
+                    <?php foreach ($bullets as $bIdx => $bullet): ?>
+                      <?php
+                        $iconClass = 'fa-solid fa-circle-check';
+                        if (stripos($bullet, 'fix') !== false || stripos($bullet, 'lỗi') !== false) {
+                            $iconClass = 'fa-solid fa-wrench';
+                        } elseif (stripos($bullet, 'exe') !== false || stripos($bullet, 'tải') !== false || stripos($bullet, 'cài') !== false) {
+                            $iconClass = 'fa-solid fa-download';
+                        } elseif (stripos($bullet, 'ico') !== false || stripos($bullet, 'icon') !== false || stripos($bullet, 'giao diện') !== false) {
+                            $iconClass = 'fa-solid fa-palette';
+                        } elseif (stripos($bullet, 'bản quyền') !== false || stripos($bullet, 'key') !== false) {
+                            $iconClass = 'fa-solid fa-shield-halved';
+                        } elseif (stripos($bullet, 'delta') !== false || stripos($bullet, 'nhanh') !== false || stripos($bullet, 'tốc') !== false) {
+                            $iconClass = 'fa-solid fa-bolt';
+                        }
+                      ?>
+                      <div class="change-item">
+                        <div class="change-icon"><i class="<?= $iconClass ?>"></i></div>
+                        <div class="change-text">
+                          <p><?= htmlspecialchars($bullet) ?></p>
+                        </div>
+                      </div>
+                    <?php endforeach; ?>
+                  </div>
+                <?php endif; ?>
 
-          <!-- Release v2.5.0 -->
-          <div class="changelog-card">
-            <div class="changelog-badge-row">
-              <span class="badge-stable"><i class="fa-solid fa-shield"></i> ỔN ĐỊNH</span>
-              <span class="version-tag">Phiên bản v2.5.0</span>
-              <span class="release-date"><i class="fa-regular fa-calendar-check"></i> 06/09/2026</span>
-            </div>
-            <h3 class="changelog-headline">Nâng Cấp AI OCR Tesseract, Tích Hợp Remote Updater</h3>
-            <div class="changelog-grid">
-              <div class="change-item">
-                <div class="change-icon"><i class="fa-solid fa-microchip"></i></div>
-                <div class="change-text">
-                  <strong>Công Nghệ AI OCR Tesseract:</strong>
-                  <p>Nhận diện chính xác 100% số lượng tài nguyên, tự động bỏ qua nhà nghèo, chỉ đánh nhà giàu.</p>
-                </div>
+                <?php if (!empty($rel['html_url'])): ?>
+                  <div class="changelog-footer" style="margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: flex-end;">
+                    <a href="<?= htmlspecialchars($rel['html_url']) ?>" target="_blank" class="btn btn-outline btn-sm" style="font-size: 12px; padding: 6px 14px; gap: 6px; display: inline-flex; align-items: center;">
+                      <i class="fa-brands fa-github"></i> Xem bản phát hành trên GitHub <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 10px;"></i>
+                    </a>
+                  </div>
+                <?php endif; ?>
               </div>
-              <div class="change-item">
-                <div class="change-icon"><i class="fa-solid fa-desktop"></i></div>
-                <div class="change-text">
-                  <strong>Tương Thích Mọi Trình Giả Lập:</strong>
-                  <p>Hỗ trợ hoàn hảo LDPlayer 9, BlueStacks 5, NoxPlayer với tự động phát hiện cổng ADB.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+            <?php endforeach; ?>
+          <?php endif; ?>
         </div>
       </div>
     </section>

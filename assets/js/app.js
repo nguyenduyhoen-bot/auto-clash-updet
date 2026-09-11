@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Tự động kiểm tra và đồng bộ Changelog mới nhất từ GitHub Releases
+    initGitHubChangelogLive();
+
     // 3. Modal Elements
     const orderModal = document.getElementById('orderModal');
     const modalBackdrop = document.getElementById('modalBackdrop');
@@ -582,3 +585,106 @@ window.copyLicenseCode = function() {
         showToast('Đã sao chép Mã Kích Hoạt!', 'success');
     });
 };
+
+// Tự động kiểm tra và nạp Changelog trực tiếp từ GitHub Releases
+async function initGitHubChangelogLive() {
+    const timeline = document.getElementById('changelogTimeline');
+    if (!timeline) return;
+
+    const repo = timeline.dataset.repo || 'nguyenduyhoen-bot/auto-clash-updet';
+    try {
+        const res = await fetch(`https://api.github.com/repos/${repo}/releases`, {
+            headers: { 'Accept': 'application/vnd.github.v3+json' }
+        });
+        if (!res.ok) return;
+        const releases = await res.json();
+        if (!Array.isArray(releases) || releases.length === 0) return;
+
+        let html = '';
+        releases.forEach((rel, idx) => {
+            const isLatest = (idx === 0);
+            const tagName = rel.tag_name || 'v1.0.0';
+            const relName = rel.name || `AutoClash ${tagName}`;
+            let pubDate = '';
+            if (rel.published_at) {
+                const d = new Date(rel.published_at);
+                pubDate = d.toLocaleDateString('vi-VN');
+            }
+
+            const body = rel.body || '';
+            const lines = body.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+            let headline = relName;
+            const bullets = [];
+
+            lines.forEach(l => {
+                if (l.startsWith('#')) {
+                    const clean = l.replace(/^[#\s]+/, '').trim();
+                    if (clean && clean !== tagName && headline === relName) {
+                        headline = clean;
+                    }
+                } else if (l.startsWith('-') || l.startsWith('*')) {
+                    bullets.push(l.replace(/^[-*\s]+/, '').trim());
+                } else {
+                    bullets.push(l);
+                }
+            });
+
+            const badgeHtml = isLatest
+                ? `<span class="badge-latest"><i class="fa-solid fa-sparkles"></i> MỚI NHẤT</span>`
+                : `<span class="badge-stable"><i class="fa-solid fa-shield-halved"></i> ỔN ĐỊNH</span>`;
+
+            let bulletsHtml = '';
+            if (bullets.length > 0) {
+                bulletsHtml = '<div class="changelog-grid">' + bullets.map(b => {
+                    let icon = 'fa-solid fa-circle-check';
+                    const lb = b.toLowerCase();
+                    if (lb.includes('fix') || lb.includes('lỗi')) icon = 'fa-solid fa-wrench';
+                    else if (lb.includes('exe') || lb.includes('tải') || lb.includes('cài')) icon = 'fa-solid fa-download';
+                    else if (lb.includes('ico') || lb.includes('icon') || lb.includes('giao diện')) icon = 'fa-solid fa-palette';
+                    else if (lb.includes('bản quyền') || lb.includes('key')) icon = 'fa-solid fa-shield-halved';
+                    else if (lb.includes('delta') || lb.includes('nhanh') || lb.includes('tốc')) icon = 'fa-solid fa-bolt';
+
+                    return `
+                        <div class="change-item">
+                            <div class="change-icon"><i class="${icon}"></i></div>
+                            <div class="change-text"><p>${escapeHtml(b)}</p></div>
+                        </div>
+                    `;
+                }).join('') + '</div>';
+            }
+
+            const footerHtml = rel.html_url ? `
+                <div class="changelog-footer" style="margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: flex-end;">
+                    <a href="${rel.html_url}" target="_blank" class="btn btn-outline btn-sm" style="font-size: 12px; padding: 6px 14px; gap: 6px; display: inline-flex; align-items: center;">
+                        <i class="fa-brands fa-github"></i> Xem bản phát hành trên GitHub <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 10px;"></i>
+                    </a>
+                </div>
+            ` : '';
+
+            html += `
+                <div class="changelog-card ${isLatest ? 'current-release' : ''}">
+                    <div class="changelog-badge-row">
+                        ${badgeHtml}
+                        <span class="version-tag">${escapeHtml(tagName)}</span>
+                        <span class="release-date"><i class="fa-regular fa-calendar-check"></i> ${pubDate}</span>
+                    </div>
+                    <h3 class="changelog-headline">${escapeHtml(headline)}</h3>
+                    ${bulletsHtml}
+                    ${footerHtml}
+                </div>
+            `;
+        });
+
+        timeline.innerHTML = html;
+    } catch (err) {
+        // Fallback to PHP rendered HTML
+    }
+}
+
+function escapeHtml(str) {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}

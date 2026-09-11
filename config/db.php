@@ -180,3 +180,40 @@ function generateLicenseKey($planCode) {
     $part3 = strtoupper(substr(bin2hex(random_bytes(2)), 0, 4));
     return "{$prefix}-{$part1}-{$part2}-{$part3}";
 }
+
+// Lấy danh sách Releases từ GitHub API (có cache cục bộ chống nghẽn)
+function getGitHubReleases($repo = 'nguyenduyhoen-bot/auto-clash-updet') {
+    $cacheFile = __DIR__ . '/github_releases.json';
+    
+    // Nếu cache còn mới (dưới 15 phút) thì dùng luôn
+    if (file_exists($cacheFile) && (time() - filemtime($cacheFile) < 900)) {
+        $cached = json_decode(file_get_contents($cacheFile), true);
+        if (!empty($cached)) return $cached;
+    }
+
+    // Thử gọi GitHub API nếu có kết nối
+    $url = "https://api.github.com/repos/{$repo}/releases";
+    $opts = [
+        'http' => [
+            'method'  => 'GET',
+            'header'  => "User-Agent: AutoClash-Website/1.0\r\nAccept: application/vnd.github.v3+json\r\n",
+            'timeout' => 5
+        ]
+    ];
+    $ctx = stream_context_create($opts);
+    $raw = @file_get_contents($url, false, $ctx);
+    if ($raw) {
+        $data = json_decode($raw, true);
+        if (is_array($data) && !empty($data) && !isset($data['message'])) {
+            @file_put_contents($cacheFile, $raw);
+            return $data;
+        }
+    }
+
+    // Fallback file cache cục bộ
+    if (file_exists($cacheFile)) {
+        return json_decode(file_get_contents($cacheFile), true) ?: [];
+    }
+
+    return [];
+}

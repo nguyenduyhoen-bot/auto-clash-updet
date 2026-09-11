@@ -25,9 +25,9 @@
       "name": "updater.py",
       "path": "updater.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.2/updater.py",
-      "sha256": "567423507d43f26690c54e23df67fd895d4f204004c39ef36646cfba4653ff75",
-      "size_bytes": 19441,
-      "size_formatted": "18.99 KB"
+      "sha256": "98dea30e7a7463f9dde4945a37f64946dbe58936da87c99cdba5669fc1b51291",
+      "size_bytes": 20681,
+      "size_formatted": "20.20 KB"
     },
     {
       "name": "uninstall.exe",
@@ -56,6 +56,15 @@
   ],
   "setup_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.2/AutoClash_Setup.exe",
   "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.2/AutoClash_Setup.exe",
+  "delete_files": [
+    "firegost.ico",
+    "activation.exe",
+    "activation.py",
+    "updet.exe",
+    "unins000.exe",
+    "unins000.dat",
+    "version_local.json"
+  ],
   "changelog": [
     "- v1.1.2: Gộp hoàn toàn tính năng Bản Quyền & Bot thành 1 file AutoClash.exe duy nhất",
     "- Nâng cấp giao diện Cyberpunk Dark Slate siêu gọn gàng, tinh tế, loại bỏ hoàn toàn lỗi che chữ trên tab",

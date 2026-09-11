@@ -1,16 +1,17 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.1",
   "release_date": "11/09/2026",
-  "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.0.0/update_v1.0.0.zip",
-  "setup_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.0.0/AutoClash_Setup.exe",
-  "update_zip_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.0.0/update_v1.0.0.zip",
-  "full_zip_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.0.0/AutoClash_v1.0.0.zip",
+  "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.1/update_v1.1.1.zip",
+  "setup_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.1/AutoClash_Setup.exe",
+  "update_zip_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.1/update_v1.1.1.zip",
+  "full_zip_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.1/AutoClash_v1.1.1.zip",
   "changelog": [
-    "- v1.0.0: Phiên bản đầu tiên phát hành chính thức",
-    "- Chuyển sang hệ thống cập nhật GitHub Releases mới",
-    "- Tối ưu hóa hệ thống auto-update qua repo nguyenduyhoen-bot",
-    "- Cập nhật URL tải về và setup mới nhất"
+    "- v1.1.1: Fix loi bypass kich hoat ban quyen",
+    "- Gop activation vao Launcher (khong can activation.exe rieng)",
+    "- Them thu muc _uninstall voi script go cai dat",
+    "- Setup tu dong tao shortcut Desktop cho AutoClash va Updater",
+    "- Chan Escape/Alt+F4 trong cua so kich hoat"
   ],
-  "checksum_sha256": "",
+  "checksum_sha256": "D59098BE049A2AE298318D1A40659D9D89E18E7B2E1D4BA60BBE7E812B164E58",
   "force_update": false
 }

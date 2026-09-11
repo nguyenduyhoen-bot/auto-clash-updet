@@ -1,5 +1,5 @@
 {
-  "version": "1.1.2",
+  "version": "1.1.3",
   "release_date": "11/09/2026",
   "min_version": "1.0.0",
   "force_update": false,
@@ -8,15 +8,15 @@
     {
       "name": "AutoClash.exe",
       "path": "AutoClash.exe",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.2/AutoClash.exe",
-      "sha256": "c69ed02669ec3ad2582e88191ec969ade42ea2abea594af859b130666dd150c1",
-      "size_bytes": 41703369,
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash.exe",
+      "sha256": "ce884436beee616cbc715520cd7f53c0a71426b0eb6d283c5a783a0b5c222661",
+      "size_bytes": 41704740,
       "size_formatted": "39.77 MB"
     },
     {
       "name": "Updater.exe",
       "path": "Updater.exe",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.2/Updater.exe",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/Updater.exe",
       "sha256": "a38d4f4986d8f26f3e603fde80a50e134a6e774f5482a8040aafc2b8ba419434",
       "size_bytes": 11047532,
       "size_formatted": "10.54 MB"
@@ -24,15 +24,15 @@
     {
       "name": "updater.py",
       "path": "updater.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.2/updater.py",
-      "sha256": "98dea30e7a7463f9dde4945a37f64946dbe58936da87c99cdba5669fc1b51291",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/updater.py",
+      "sha256": "f456d40a15832063f196481810204de6177e1e0b90316e00cc7ecaeb45535d58",
       "size_bytes": 20681,
       "size_formatted": "20.20 KB"
     },
     {
       "name": "uninstall.exe",
       "path": "_uninstall/uninstall.exe",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.2/uninstall.exe",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/uninstall.exe",
       "sha256": "e6b84f7c0ca07f39e4d405254d6796f97e8e891c45b5adbb09d99af40aa86d2a",
       "size_bytes": 37337421,
       "size_formatted": "35.61 MB"
@@ -40,7 +40,7 @@
     {
       "name": "uninstall.py",
       "path": "_uninstall/uninstall.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.2/uninstall.py",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/uninstall.py",
       "sha256": "62292485fce4aa7a345616a518f3e98544330d45b55e6c0bafb50198cd686eef",
       "size_bytes": 11233,
       "size_formatted": "10.97 KB"
@@ -48,14 +48,14 @@
     {
       "name": "firegost.ico",
       "path": "Templates/firegost.ico",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.2/firegost.ico",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/firegost.ico",
       "sha256": "92bdae1f0167f5b18d10c5d9d33405217b0a4443456d21881dcd50cdee8816d0",
       "size_bytes": 61628,
       "size_formatted": "60.18 KB"
     }
   ],
-  "setup_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.2/AutoClash_Setup.exe",
-  "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.2/AutoClash_Setup.exe",
+  "setup_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash_Setup.exe",
+  "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash_Setup.exe",
   "delete_files": [
     "firegost.ico",
     "activation.exe",
@@ -66,12 +66,11 @@
     "version_local.json"
   ],
   "changelog": [
-    "- v1.1.2: Gộp hoàn toàn tính năng Bản Quyền & Bot thành 1 file AutoClash.exe duy nhất",
-    "- Nâng cấp giao diện Cyberpunk Dark Slate siêu gọn gàng, tinh tế, loại bỏ hoàn toàn lỗi che chữ trên tab",
-    "- Tích hợp thanh điều khiển 1 hàng thống nhất, thẻ bản quyền gọn gàng, 1 click copy HWID",
-    "- Chuyển file icon firegost.ico vào thư mục Templates gọn gàng",
-    "- Loại bỏ hoàn toàn file unins000.exe và unins000.dat, sử dụng trình gỡ cài đặt riêng",
-    "- Tối ưu hóa cơ chế tải Delta Update từng file sửa lỗi siêu tốc",
-    "- Giữ nguyên 100% các tính năng farm tài nguyên, luyện quân, đa làng, Clan Games, Clan Capital"
+    "- v1.1.3: Khắc phục triệt để lỗi không tìm thấy module bot core (main.py)",
+    "- Sửa lỗi không tương thích chuỗi Anaconda trong sys.version với platform._sys_version",
+    "- Cơ chế tự động dò tìm thư mục gốc và tài nguyên bot (adb, attacks, Templates, profiles) đa ngữ cảnh",
+    "- Nâng cấp AutoClash.exe nhận diện phiên bản v1.1.3 trên thanh tiêu đề và giao diện",
+    "- Tích hợp module cập nhật tự động (updater.py) hỗ trợ Delta Update kiểm tra SHA-256 từng file",
+    "- Tự động dọn dẹp các tệp tin cũ/thừa khi cập nhật (activation, updet, unins000)"
   ]
 }

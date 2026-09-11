@@ -1,16 +1,15 @@
 {
-  "version": "2.5.2",
-  "release_date": "10/09/2026",
-  "download_url": "https://github.com/hoanbaby/Auto-clash-updet/releases/download/v2.5.2/update_v2.5.2.zip",
-  "setup_download_url": "https://github.com/hoanbaby/Auto-clash-updet/releases/download/v2.5.2/AutoClash_Setup.exe",
-  "update_zip_url": "https://github.com/hoanbaby/Auto-clash-updet/releases/download/v2.5.2/update_v2.5.2.zip",
-  "full_zip_download_url": "https://github.com/hoanbaby/Auto-clash-updet/releases/download/v2.5.2/AutoClash_v2.5.2.zip",
+  "version": "1.0.0",
+  "release_date": "11/09/2026",
+  "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.0.0/update_v1.0.0.zip",
+  "setup_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.0.0/AutoClash_Setup.exe",
+  "update_zip_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.0.0/update_v1.0.0.zip",
+  "full_zip_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.0.0/AutoClash_v1.0.0.zip",
   "changelog": [
-    "- Cập nhật tải xong hệ thống tự động giải nén và cài đặt ngay không cần bấm thêm",
-    "- Gộp toàn diện thành 1 file AutoClash.exe duy nhất (220MB standalone), loại bỏ AutoClash_Core.exe",
-    "- Bổ sung đầy đủ thư mục runtime numps giúp phần mềm khởi chạy mượt mà trên mọi máy",
-    "- Tự động cấu hình môi trường Setup.bat ngầm không bị dừng hay chờ phím",
-    "- Tích hợp công cụ gỡ cài đặt Go_Cai_Dat.exe và Go_Cai_Dat.bat sạch sẽ"
+    "- v1.0.0: Phiên bản đầu tiên phát hành chính thức",
+    "- Chuyển sang hệ thống cập nhật GitHub Releases mới",
+    "- Tối ưu hóa hệ thống auto-update qua repo nguyenduyhoen-bot",
+    "- Cập nhật URL tải về và setup mới nhất"
   ],
   "checksum_sha256": "",
   "force_update": false

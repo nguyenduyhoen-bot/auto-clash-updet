@@ -89,7 +89,9 @@ if ($db) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kho Key Bản Quyền - AutoClash Admin</title>
-    <link rel="icon" type="image/x-icon" href="../firegost.ico">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico?v=<?= time() ?>">
+    <link rel="shortcut icon" href="../favicon.ico?v=<?= time() ?>">
+    <link rel="icon" type="image/png" href="../assets/img/logo.png?v=<?= time() ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">

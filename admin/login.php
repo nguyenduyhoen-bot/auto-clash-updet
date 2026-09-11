@@ -42,8 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Nhập Quản Trị - AutoClash Admin</title>
-    <link rel="icon" type="image/x-icon" href="../firegost.ico">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico?v=<?= time() ?>">
+    <link rel="shortcut icon" href="../favicon.ico?v=<?= time() ?>">
+    <link rel="icon" type="image/png" href="../assets/img/logo.png?v=<?= time() ?>">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>

@@ -1,0 +1,33 @@
+<?php
+header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: *');
+
+$jsonFile = __DIR__ . '/../version.json';
+if (file_exists($jsonFile)) {
+    echo file_get_contents($jsonFile);
+    exit;
+}
+
+require_once __DIR__ . '/../config/db.php';
+
+$appVersion = getSetting('app_version', 'v2.5.5');
+$cleanVersion = ltrim($appVersion, 'v');
+
+echo json_encode([
+    'version'       => $cleanVersion,
+    'release_date'  => date('d/m/Y'),
+    'download_url'  => 'https://github.com/hoanbaby/Auto-clash-updet/releases/download/v2.5.5/update_v2.5.5.zip',
+    'setup_download_url' => 'https://github.com/hoanbaby/Auto-clash-updet/releases/download/v2.5.5/AutoClash_Setup.exe',
+    'update_zip_url' => 'https://github.com/hoanbaby/Auto-clash-updet/releases/download/v2.5.5/update_v2.5.5.zip',
+    'full_zip_download_url' => 'https://github.com/hoanbaby/Auto-clash-updet/releases/download/v2.5.5/AutoClash_v2.5.5.zip',
+    'changelog'     => [
+        "- v2.5.5: Cập nhật bảng kích hoạt tool hướng dẫn truy cập website autococ.infinityfree.me",
+        "- Xoá số điện thoại Zalo cá nhân trên giao diện kích hoạt",
+        "- Fix lỗi Incorrect padding khi nhập key kích hoạt",
+        "- Thêm công cụ Kich_Hoat_Key.bat kích hoạt tự động 1-click",
+        "- Tối ưu hóa giao diện liên kết HWID trên website",
+        "- Tích hợp sẵn license.key và public_key.pem mới nhất"
+    ],
+    'checksum_sha256' => '20848467a07868201bb075196bfebfef5567e7eacc122cff79bb360e3010644a',
+    'force_update'  => false
+], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);

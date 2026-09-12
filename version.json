@@ -1,18 +1,73 @@
 {
-  "version": "2.5.5",
-  "release_date": "10/09/2026",
-  "download_url": "https://github.com/hoanbaby/Auto-clash-updet/releases/download/v2.5.5/update_v2.5.5.zip",
-  "setup_download_url": "https://github.com/hoanbaby/Auto-clash-updet/releases/download/v2.5.5/AutoClash_Setup.exe",
-  "update_zip_url": "https://github.com/hoanbaby/Auto-clash-updet/releases/download/v2.5.5/update_v2.5.5.zip",
-  "full_zip_download_url": "https://github.com/hoanbaby/Auto-clash-updet/releases/download/v2.5.5/AutoClash_v2.5.5.zip",
+  "version": "1.1.3",
+  "release_date": "11/09/2026",
+  "setup_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash_Setup.exe",
+  "driver_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash_Setup.exe",
+  "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash_Setup.exe",
   "changelog": [
-    "- v2.5.5: Cập nhật bảng kích hoạt tool hướng dẫn truy cập website autococ.infinityfree.me",
-    "- Xoá số điện thoại Zalo cá nhân trên giao diện kích hoạt",
-    "- Fix lỗi Incorrect padding khi nhập key kích hoạt",
-    "- Thêm công cụ Kich_Hoat_Key.bat kích hoạt tự động 1-click",
-    "- Tối ưu hóa giao diện liên kết HWID trên website",
-    "- Tích hợp sẵn license.key và public_key.pem mới nhất"
+    "- v1.1.3: Cập nhật siêu tốc các file sửa lỗi Delta Update",
+    "- Fix lỗi không tìm thấy module bot core",
+    "- Tự cấu hình môi trường giả lập và thư mục cốt lõi"
   ],
-  "checksum_sha256": "20848467a07868201bb075196bfebfef5567e7eacc122cff79bb360e3010644a",
-  "force_update": false
+  "force_update": false,
+  "update_type": "delta_files",
+  "files": [
+    {
+      "name": "AutoClash.exe",
+      "path": "AutoClash.exe",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash.exe",
+      "sha256": "d10077fe76d8744064f0e238c82eed628d0d5df5c7697cb010c7468315b61101",
+      "size_bytes": 41794859,
+      "size_formatted": "39.86 MB"
+    },
+    {
+      "name": "Updater.exe",
+      "path": "Updater.exe",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/Updater.exe",
+      "sha256": "a38d4f4986d8f26f3e603fde80a50e134a6e774f5482a8040aafc2b8ba419434",
+      "size_bytes": 11047532,
+      "size_formatted": "10.54 MB"
+    },
+    {
+      "name": "updater.py",
+      "path": "updater.py",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/updater.py",
+      "sha256": "f456d40a15832063f196481810204de6177e1e0b90316e00cc7ecaeb45535d58",
+      "size_bytes": 20681,
+      "size_formatted": "20.20 KB"
+    },
+    {
+      "name": "uninstall.exe",
+      "path": "_uninstall/uninstall.exe",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/uninstall.exe",
+      "sha256": "e6b84f7c0ca07f39e4d405254d6796f97e8e891c45b5adbb09d99af40aa86d2a",
+      "size_bytes": 37337421,
+      "size_formatted": "35.61 MB"
+    },
+    {
+      "name": "uninstall.py",
+      "path": "_uninstall/uninstall.py",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/uninstall.py",
+      "sha256": "62292485fce4aa7a345616a518f3e98544330d45b55e6c0bafb50198cd686eef",
+      "size_bytes": 11233,
+      "size_formatted": "10.97 KB"
+    },
+    {
+      "name": "firegost.ico",
+      "path": "Templates/firegost.ico",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/firegost.ico",
+      "sha256": "92bdae1f0167f5b18d10c5d9d33405217b0a4443456d21881dcd50cdee8816d0",
+      "size_bytes": 61628,
+      "size_formatted": "60.18 KB"
+    }
+  ],
+  "delete_files": [
+    "firegost.ico",
+    "activation.exe",
+    "activation.py",
+    "updet.exe",
+    "unins000.exe",
+    "unins000.dat",
+    "version_local.json"
+  ]
 }

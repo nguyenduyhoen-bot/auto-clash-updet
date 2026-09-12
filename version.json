@@ -15,23 +15,23 @@
       "name": "AutoClash.exe",
       "path": "AutoClash.exe",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/AutoClash.exe",
-      "sha256": "48d0123b698c76e094667f032ebcbb839d833442e4a8232856ba20ac28dcb9b4",
-      "size_bytes": 97108405,
-      "size_formatted": "92.61 MB"
+      "sha256": "80a8e06364ac356ad2e1f388260fe1861110123682eb5ff42e153ddbb3f93e65",
+      "size_bytes": 94957610,
+      "size_formatted": "90.56 MB"
     },
     {
       "name": "Updater.exe",
       "path": "Updater.exe",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/Updater.exe",
-      "sha256": "1091676c2ae8a34a9fccb8a620d45efd804aaed15e2231f5e88c9095d44aa30f",
-      "size_bytes": 11049158,
+      "sha256": "b70b05cdba76955e1ce805e0412f4aad1d376875302c873d1f09fe616dc0ca3f",
+      "size_bytes": 11051122,
       "size_formatted": "10.54 MB"
     },
     {
       "name": "updater.py",
       "path": "_internal/updater.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/updater.py",
-      "sha256": "8bd3a024f5b7a02bb80b2504b599abef8dc8a163a7c8125d3d40590025383e24",
+      "sha256": "dc1ba3dbd0218816167a894d599d5ffb649cb3e00c0f818b5c83f86f6b55e447",
       "size_bytes": 29781,
       "size_formatted": "29.08 KB"
     },
@@ -39,9 +39,9 @@
       "name": "autoclash_gui.py",
       "path": "_internal/autoclash_gui.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/autoclash_gui.py",
-      "sha256": "9269d2969d64d0b21fff68f04a9dcb582214881e594757901289d80c32bf753a",
-      "size_bytes": 107737,
-      "size_formatted": "105.21 KB"
+      "sha256": "01edb75f6269bfe1df3e21497f30dfb06b149c796aeaf09d00890809bba0917b",
+      "size_bytes": 109538,
+      "size_formatted": "106.97 KB"
     },
     {
       "name": "IsTarget.py",
@@ -87,7 +87,7 @@
       "name": "home_routine.py",
       "path": "_internal/home_routine.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/home_routine.py",
-      "sha256": "0e6a2734d7d161513f2d54f7c4c9bc72558157988fa51f4de27b2c0840e70941",
+      "sha256": "87e833df12a19424121522cc3457332ce804bce482f6b2ba29a5ef23e2a6932d",
       "size_bytes": 18789,
       "size_formatted": "18.35 KB"
     },

@@ -111,6 +111,19 @@
     "_internal/Templates/app_icon.ico",
     "_internal/Templates/app_icon_old.ico",
     "_internal/Templates/Loading_screen.png",
-    "_internal/Templates/highres_logo.png"
+    "_internal/Templates/highres_logo.png",
+    "home_routine.py",
+    "bypass_screen.ahk",
+    "autoclash_gui.py",
+    "msvcp140.dll",
+    "MSVCP140_1.dll",
+    "ocr_reader.py",
+    "request_troops",
+    "settings.json",
+    "treasure_event",
+    "updater.py",
+    "vcruntime140.dll",
+    "vcruntime140_1.dll",
+    "version.json"
   ]
 }

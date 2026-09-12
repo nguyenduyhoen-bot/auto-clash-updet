@@ -99,6 +99,18 @@
     "screen.png",
     "validate.png",
     "wall_search.png",
-    "popup.png"
+    "popup.png",
+    "app_icon.ico",
+    "app_icon_old.ico",
+    "Loading_screen.png",
+    "highres_logo.png",
+    "Templates/app_icon.ico",
+    "Templates/app_icon_old.ico",
+    "Templates/Loading_screen.png",
+    "Templates/highres_logo.png",
+    "_internal/Templates/app_icon.ico",
+    "_internal/Templates/app_icon_old.ico",
+    "_internal/Templates/Loading_screen.png",
+    "_internal/Templates/highres_logo.png"
   ]
 }

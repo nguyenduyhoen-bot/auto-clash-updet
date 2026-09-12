@@ -5,9 +5,9 @@
   "driver_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash_Setup.exe",
   "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash_Setup.exe",
   "changelog": [
-    "- v1.1.3: Cập nhật siêu tốc các file sửa lỗi Delta Update",
-    "- Fix lỗi không tìm thấy module bot core",
-    "- Tự cấu hình môi trường giả lập và thư mục cốt lõi"
+    "- v1.1.3: Tích hợp nhật ký hoạt động trực tiếp vào tab Tổng Quan",
+    "- Tự động nhận diện chính xác giả lập đang mở và kết nối ADB",
+    "- Cập nhật siêu tốc các file sửa lỗi Delta Update"
   ],
   "force_update": false,
   "update_type": "delta_files",
@@ -16,9 +16,9 @@
       "name": "AutoClash.exe",
       "path": "AutoClash.exe",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash.exe",
-      "sha256": "d10077fe76d8744064f0e238c82eed628d0d5df5c7697cb010c7468315b61101",
-      "size_bytes": 41794859,
-      "size_formatted": "39.86 MB"
+      "sha256": "7debdeb356cf92b5c85cdc8281c4ef7e359bccc0f91ebadcf982bdc6f18ab5a9",
+      "size_bytes": 41806030,
+      "size_formatted": "39.87 MB"
     },
     {
       "name": "Updater.exe",

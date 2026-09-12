@@ -16,33 +16,33 @@
       "name": "AutoClash.exe",
       "path": "AutoClash.exe",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/AutoClash.exe",
-      "sha256": "88290b7da2d38e6bd15390faffb5caf00a8416d84de459ac492fe762cd33ee82",
-      "size_bytes": 97108326,
+      "sha256": "48d0123b698c76e094667f032ebcbb839d833442e4a8232856ba20ac28dcb9b4",
+      "size_bytes": 97108405,
       "size_formatted": "92.61 MB"
     },
     {
       "name": "Updater.exe",
       "path": "Updater.exe",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/Updater.exe",
-      "sha256": "9c8d7e40407d2bad0b6ebdb677a07b594ee40d358b0cfaa98d62d68a3ac8f240",
-      "size_bytes": 11049044,
+      "sha256": "1091676c2ae8a34a9fccb8a620d45efd804aaed15e2231f5e88c9095d44aa30f",
+      "size_bytes": 11049158,
       "size_formatted": "10.54 MB"
     },
     {
       "name": "updater.py",
       "path": "updater.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/updater.py",
-      "sha256": "b452b99b0ff3c3ba755b333407f3a711fcafece40b703b6be47cc8f43d86d49a",
-      "size_bytes": 22795,
-      "size_formatted": "22.26 KB"
+      "sha256": "7ba58ce5da460c01c168fed266cce84aabae89c1e6ba39dbc4a294c2fe913be3",
+      "size_bytes": 24465,
+      "size_formatted": "23.89 KB"
     },
     {
       "name": "home_routine.py",
       "path": "home_routine.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/home_routine.py",
-      "sha256": "264a2256413cbff0c673b7ca0c20e13b216c1f226d3eb0bd896aecb250eeb54e",
-      "size_bytes": 18351,
-      "size_formatted": "17.92 KB"
+      "sha256": "555fbcdc5f00ca707b0e97c1363daf2a5441eaa1c6ebf1c4ac920465bcd0a0ba",
+      "size_bytes": 18638,
+      "size_formatted": "18.20 KB"
     },
     {
       "name": "uninstall.exe",
@@ -82,6 +82,23 @@
     "updet.exe",
     "unins000.exe",
     "unins000.dat",
-    "version_local.json"
+    "version_local.json",
+    "army_window_crop.png",
+    "battle.png",
+    "Collectors_resources.png",
+    "conn.png",
+    "debug_army_roi.png",
+    "elixir_crop_debug.png",
+    "enemy_resources.png",
+    "gold_crop_debug.png",
+    "home.png",
+    "home_page.png",
+    "is_next_button.png",
+    "res.png",
+    "scout.png",
+    "screen.png",
+    "validate.png",
+    "wall_search.png",
+    "popup.png"
   ]
 }

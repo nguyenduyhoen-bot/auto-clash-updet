@@ -1,13 +1,13 @@
 {
-  "version": "1.1.3",
-  "release_date": "11/09/2026",
-  "setup_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash_Setup.exe",
-  "driver_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash_Setup.exe",
-  "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash_Setup.exe",
+  "version": "1.1.4",
+  "release_date": "12/09/2026",
+  "setup_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/AutoClash_Setup.exe",
+  "driver_download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/AutoClash_Setup.exe",
+  "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/AutoClash_Setup.exe",
   "changelog": [
-    "- v1.1.3: Tích hợp nhật ký hoạt động trực tiếp vào tab Tổng Quan",
-    "- Tự động nhận diện chính xác giả lập đang mở và kết nối ADB",
-    "- Cập nhật siêu tốc các file sửa lỗi Delta Update"
+    "- v1.1.4: Chuyển toàn bộ thư mục walls và debug_match vào trong Templates",
+    "- Tự động dọn dẹp các thư mục ngoài khi cập nhật bản mới",
+    "- Chuẩn hóa đường dẫn chạy bot ổn định, hỗ trợ nâng cấp tường lên level 18"
   ],
   "force_update": false,
   "update_type": "delta_files",
@@ -15,31 +15,39 @@
     {
       "name": "AutoClash.exe",
       "path": "AutoClash.exe",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/AutoClash.exe",
-      "sha256": "7debdeb356cf92b5c85cdc8281c4ef7e359bccc0f91ebadcf982bdc6f18ab5a9",
-      "size_bytes": 41806030,
-      "size_formatted": "39.87 MB"
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/AutoClash.exe",
+      "sha256": "88290b7da2d38e6bd15390faffb5caf00a8416d84de459ac492fe762cd33ee82",
+      "size_bytes": 97108326,
+      "size_formatted": "92.61 MB"
     },
     {
       "name": "Updater.exe",
       "path": "Updater.exe",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/Updater.exe",
-      "sha256": "a38d4f4986d8f26f3e603fde80a50e134a6e774f5482a8040aafc2b8ba419434",
-      "size_bytes": 11047532,
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/Updater.exe",
+      "sha256": "9c8d7e40407d2bad0b6ebdb677a07b594ee40d358b0cfaa98d62d68a3ac8f240",
+      "size_bytes": 11049044,
       "size_formatted": "10.54 MB"
     },
     {
       "name": "updater.py",
       "path": "updater.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/updater.py",
-      "sha256": "f456d40a15832063f196481810204de6177e1e0b90316e00cc7ecaeb45535d58",
-      "size_bytes": 20681,
-      "size_formatted": "20.20 KB"
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/updater.py",
+      "sha256": "b452b99b0ff3c3ba755b333407f3a711fcafece40b703b6be47cc8f43d86d49a",
+      "size_bytes": 22795,
+      "size_formatted": "22.26 KB"
+    },
+    {
+      "name": "home_routine.py",
+      "path": "home_routine.py",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/home_routine.py",
+      "sha256": "264a2256413cbff0c673b7ca0c20e13b216c1f226d3eb0bd896aecb250eeb54e",
+      "size_bytes": 18351,
+      "size_formatted": "17.92 KB"
     },
     {
       "name": "uninstall.exe",
       "path": "_uninstall/uninstall.exe",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/uninstall.exe",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/uninstall.exe",
       "sha256": "e6b84f7c0ca07f39e4d405254d6796f97e8e891c45b5adbb09d99af40aa86d2a",
       "size_bytes": 37337421,
       "size_formatted": "35.61 MB"
@@ -47,7 +55,7 @@
     {
       "name": "uninstall.py",
       "path": "_uninstall/uninstall.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/uninstall.py",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/uninstall.py",
       "sha256": "62292485fce4aa7a345616a518f3e98544330d45b55e6c0bafb50198cd686eef",
       "size_bytes": 11233,
       "size_formatted": "10.97 KB"
@@ -55,11 +63,17 @@
     {
       "name": "firegost.ico",
       "path": "Templates/firegost.ico",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.3/firegost.ico",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.4/firegost.ico",
       "sha256": "92bdae1f0167f5b18d10c5d9d33405217b0a4443456d21881dcd50cdee8816d0",
       "size_bytes": 61628,
       "size_formatted": "60.18 KB"
     }
+  ],
+  "delete_dirs": [
+    "walls",
+    "debug_match",
+    "_internal/walls",
+    "_internal/debug_match"
   ],
   "delete_files": [
     "firegost.ico",

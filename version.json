@@ -15,9 +15,9 @@
       "name": "AutoClash.exe",
       "path": "AutoClash.exe",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/AutoClash.exe",
-      "sha256": "80a8e06364ac356ad2e1f388260fe1861110123682eb5ff42e153ddbb3f93e65",
-      "size_bytes": 94957610,
-      "size_formatted": "90.56 MB"
+      "sha256": "4348e1a16c75219db2f0686495feddb70cbbc0cb8b98d27b461bc2c0fcbc2ad0",
+      "size_bytes": 97108405,
+      "size_formatted": "92.61 MB"
     },
     {
       "name": "Updater.exe",
@@ -39,9 +39,9 @@
       "name": "autoclash_gui.py",
       "path": "_internal/autoclash_gui.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/autoclash_gui.py",
-      "sha256": "01edb75f6269bfe1df3e21497f30dfb06b149c796aeaf09d00890809bba0917b",
-      "size_bytes": 109538,
-      "size_formatted": "106.97 KB"
+      "sha256": "688af1540f482a07747e48c7197a6e0d55d8d9bb6929000f7122c99cc390aa84",
+      "size_bytes": 108571,
+      "size_formatted": "106.03 KB"
     },
     {
       "name": "IsTarget.py",

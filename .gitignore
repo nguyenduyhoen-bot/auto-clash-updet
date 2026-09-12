@@ -1,3 +1,14 @@
 *.exe
 *.zip
 *.part*
+
+# Bảo mật: Không push mã nguồn web và file nhạy cảm lên repo update
+api/
+assets/
+admin/
+config/
+*.php
+*.pem
+*.sql
+*.ico
+*.png

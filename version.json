@@ -38,9 +38,9 @@
       "name": "autoclash_gui.py",
       "path": "_internal/autoclash_gui.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/autoclash_gui.py",
-      "sha256": "50164655af7b18fce0d4285356eeae831728bc61b974de8d4cddf91ce5d0652e",
-      "size_bytes": 115856,
-      "size_formatted": "113.14 KB"
+      "sha256": "04a068e76184b31823d9914adfba36c37f01599cffd361978590cb27bb1aa71c",
+      "size_bytes": 116087,
+      "size_formatted": "113.37 KB"
     },
     {
       "name": "ldplayer_manager.py",
@@ -54,9 +54,9 @@
       "name": "main.py",
       "path": "_internal/main.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/main.py",
-      "sha256": "0f25fe5dccdea868a66742ee6cba89e3cd0403340384911e3d8462d582d82862",
-      "size_bytes": 6964,
-      "size_formatted": "6.80 KB"
+      "sha256": "03ce3d763fb1e3141af17817fc1f2d085d11bb73a88a4fa23ac731c6141475d8",
+      "size_bytes": 12868,
+      "size_formatted": "12.57 KB"
     },
     {
       "name": "IsTarget.py",
@@ -105,6 +105,14 @@
       "sha256": "68452bd77dd99ab0b99439dfee7df92f1e0252b6bdae6b276439c15f43c05a71",
       "size_bytes": 13550,
       "size_formatted": "13.23 KB"
+    },
+    {
+      "name": "boot_recovery.py",
+      "path": "_internal/boot_recovery.py",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/boot_recovery.py",
+      "sha256": "3ea8dbf9970df4ecdc57b2c067e79a0f3df4d0f48f4fcac764d2415058136238",
+      "size_bytes": 3362,
+      "size_formatted": "3.28 KB"
     },
     {
       "name": "ready_villages.pyc",

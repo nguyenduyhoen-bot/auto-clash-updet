@@ -70,17 +70,17 @@
       "name": "ocr_reader.py",
       "path": "_internal/ocr_reader.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/ocr_reader.py",
-      "sha256": "660ab2047f122ed0477f169dad38bad4359beca96fd0064e52f04cdfa2dbea8a",
-      "size_bytes": 11418,
-      "size_formatted": "11.15 KB"
+      "sha256": "fb9e0e99513829930819bf3b2d81d42d5933f16ebb92c3a45e3c7ff82c1c968b",
+      "size_bytes": 11181,
+      "size_formatted": "10.92 KB"
     },
     {
       "name": "ocr_worker.py",
       "path": "_internal/ocr_worker.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/ocr_worker.py",
-      "sha256": "7862cd6be7a003c0b0214e4a0b46372c5c4cb06693460678d25ef9b284b79d21",
-      "size_bytes": 4678,
-      "size_formatted": "4.57 KB"
+      "sha256": "7b44030afa464fa4933b4e43929e8f5f8539914c4afbd21c56774ad855b723d8",
+      "size_bytes": 2961,
+      "size_formatted": "2.89 KB"
     },
     {
       "name": "detect_home_base.py",

@@ -30,17 +30,17 @@
       "name": "updater.py",
       "path": "_internal/updater.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/updater.py",
-      "sha256": "a256560d43ad1536bafb0888ad64ccbdb5984b8d24b8755a5cbe7880511498a8",
-      "size_bytes": 31310,
-      "size_formatted": "30.58 KB"
+      "sha256": "20d372fb9864edc89212cab5ffd20afb01f864a7522cbd3c82fbeae0cd11fc73",
+      "size_bytes": 31343,
+      "size_formatted": "30.61 KB"
     },
     {
       "name": "autoclash_gui.py",
       "path": "_internal/autoclash_gui.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/autoclash_gui.py",
-      "sha256": "022281f57f2f20e278d44cc3573e735ff57b2e30b104a717f3ab75a9c8384b90",
-      "size_bytes": 128960,
-      "size_formatted": "125.94 KB"
+      "sha256": "4e738f97ffc6d9733a90b90457ed63bc2326d73d8f8d95e3adc6b0bd380b58e0",
+      "size_bytes": 129114,
+      "size_formatted": "126.09 KB"
     },
     {
       "name": "ldplayer_manager.py",
@@ -239,6 +239,7 @@
     "ocr_worker.py",
     "main.py",
     "ldplayer_manager.py",
-    "debug_qt.log"
+    "debug_qt.log",
+    "AutoClash.exe.bak"
   ]
 }

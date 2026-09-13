@@ -2,10 +2,11 @@
   "version": "1.1.9",
   "release_date": "13/09/2026",
   "changelog": [
+    "- v1.1.9: Thêm tính năng Đầu Hàng Tự Động (Auto Surrender) trong tab Chiến Thuật — bật/tắt được, cài thời gian chờ (giây)",
+    "- v1.1.9: Dùng template matching để nhận diện và tap nút Surrender & Okay chính xác theo resolution thực tế",
     "- v1.1.9: Tối ưu hoá toàn diện chuỗi thả quân và thả Hero (thả sạch 100% lính, đầy đủ tất cả Hero không bỏ sót)",
     "- v1.1.9: Khắc phục triệt để lỗi toạ độ thả ngoài màn hình và bổ sung độ trễ kích hoạt Hero chuẩn xác",
-    "- v1.1.9: Chống xung đột ADB trên máy chạy nhiều giả lập (more than one device/emulator)",
-    "- v1.1.9: Nâng cao độ mượt mà và ổn định tổng thể cho hệ thống bot"
+    "- v1.1.9: Chống xung đột ADB trên máy chạy nhiều giả lập (more than one device/emulator)"
   ],
   "force_update": false,
   "update_type": "delta_files",
@@ -38,9 +39,9 @@
       "name": "autoclash_gui.py",
       "path": "_internal/autoclash_gui.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.9/autoclash_gui.py",
-      "sha256": "8caae2712a65e5d9a643259c5f4d3b06100230f35251b317b234c8cd32546eeb",
-      "size_bytes": 131641,
-      "size_formatted": "128.56 KB"
+      "sha256": "b62ad0767e28463c999842161a54561f046e9253c5fa634b9aff374a08cffaa4",
+      "size_bytes": 134454,
+      "size_formatted": "131.30 KB"
     },
     {
       "name": "ldplayer_manager.py",
@@ -102,9 +103,9 @@
       "name": "attacks.py",
       "path": "_internal/attacks/attacks.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.9/attacks.py",
-      "sha256": "42202cf736f36ad4f024e30b3549d2e9a816db7d55962968bb643a5472b6e0ce",
-      "size_bytes": 21446,
-      "size_formatted": "20.94 KB"
+      "sha256": "c86a5435c7644288e8cb57ab8046c577b0c299129bd5f4f2666df50e99d01435",
+      "size_bytes": 14929,
+      "size_formatted": "14.58 KB"
     },
     {
       "name": "boot_recovery.py",

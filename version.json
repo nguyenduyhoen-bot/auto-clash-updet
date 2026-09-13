@@ -158,6 +158,14 @@
       "sha256": "57a1dfb421bcca908de9cfe14adf6b689c80d5be7fe9f91b96ec089bce5978cc",
       "size_bytes": 32374,
       "size_formatted": "31.62 KB"
+    },
+    {
+      "name": "firegost.ico",
+      "path": "firegost.ico",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.7/firegost.ico",
+      "sha256": "92bdae1f0167f5b18d10c5d9d33405217b0a4443456d21881dcd50cdee8816d0",
+      "size_bytes": 61628,
+      "size_formatted": "60.18 KB"
     }
   ],
   "delete_dirs": [
@@ -169,7 +177,6 @@
     "_internal/debug_match"
   ],
   "delete_files": [
-    "firegost.ico",
     "activation.exe",
     "activation.py",
     "updet.exe",

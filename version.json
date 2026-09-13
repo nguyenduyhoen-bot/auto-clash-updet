@@ -1,12 +1,12 @@
 {
-  "version": "1.1.5",
-  "release_date": "12/09/2026",
+  "version": "1.1.6",
+  "release_date": "13/09/2026",
   "changelog": [
-    "- v1.1.5: Tối ưu hóa siêu tốc độ mở app AutoClash (khởi động tức thì ~2 giây)",
-    "- Fix triệt để lỗi xung đột DLL EasyOCR / PyTorch (_C initialization routine failed)",
-    "- Fix lỗi unpack tuple khi kết thúc trận đánh (battle_ended) và tối ưu nhận diện Home Base",
-    "- Chuyển đổi nạp mô hình OCR và dọn dẹp thư mục sang luồng ngầm (Background Thread)",
-    "- Tự động dọn dẹp các tệp tin cũ và tối ưu hóa hiệu năng toàn diện"
+    "- v1.1.6: Khởi động bot siêu tốc, tối ưu EasyOCR Worker chạy nền triệt để 0s delay",
+    "- Bổ sung nhận diện và tự động thả tướng mới: HERO Duke",
+    "- Khắc phục hoàn toàn lỗi bot không thả xe công thành (empty_siege)",
+    "- Bổ sung template nhận diện cycle_btn và empty_siege_active cho xe công thành",
+    "- Bảo toàn OCR Worker, loại bỏ 100% lỗi xung đột DLL C-runtime"
   ],
   "force_update": false,
   "update_type": "delta_files",
@@ -14,7 +14,7 @@
     {
       "name": "AutoClash.exe",
       "path": "AutoClash.exe",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/AutoClash.exe",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/AutoClash.exe",
       "sha256": "4348e1a16c75219db2f0686495feddb70cbbc0cb8b98d27b461bc2c0fcbc2ad0",
       "size_bytes": 97108405,
       "size_formatted": "92.61 MB"
@@ -22,7 +22,7 @@
     {
       "name": "Updater.exe",
       "path": "Updater.exe",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/Updater.exe",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/Updater.exe",
       "sha256": "b70b05cdba76955e1ce805e0412f4aad1d376875302c873d1f09fe616dc0ca3f",
       "size_bytes": 11051122,
       "size_formatted": "10.54 MB"
@@ -30,23 +30,23 @@
     {
       "name": "updater.py",
       "path": "_internal/updater.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/updater.py",
-      "sha256": "dc1ba3dbd0218816167a894d599d5ffb649cb3e00c0f818b5c83f86f6b55e447",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/updater.py",
+      "sha256": "e247d9ac78bad95002e7fcb1f23ddb4ffc849758c3f8bc3e775963f729d0d658",
       "size_bytes": 29781,
       "size_formatted": "29.08 KB"
     },
     {
       "name": "autoclash_gui.py",
       "path": "_internal/autoclash_gui.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/autoclash_gui.py",
-      "sha256": "688af1540f482a07747e48c7197a6e0d55d8d9bb6929000f7122c99cc390aa84",
-      "size_bytes": 108571,
-      "size_formatted": "106.03 KB"
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/autoclash_gui.py",
+      "sha256": "7973b20134553b7ffe136ff82241f06df0b413eeb7fe9a0529e1a694a4c22c29",
+      "size_bytes": 108706,
+      "size_formatted": "106.16 KB"
     },
     {
       "name": "IsTarget.py",
       "path": "_internal/IsTarget.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/IsTarget.py",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/IsTarget.py",
       "sha256": "14a5846376df8d3f414f54b09782e1c055226c4b2f786e8d32aa0bd9818b04d1",
       "size_bytes": 7318,
       "size_formatted": "7.15 KB"
@@ -54,23 +54,23 @@
     {
       "name": "main.py",
       "path": "_internal/main.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/main.py",
-      "sha256": "fcb31fe4d836718f63f5c802adbdadaf0275405db389ecd9d4fd6925a7f563ff",
-      "size_bytes": 5928,
-      "size_formatted": "5.79 KB"
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/main.py",
+      "sha256": "41c5bfd32b3a3c992c41c8873388385e5f8cfcf28c463f8fe6d97fb484992aa5",
+      "size_bytes": 6155,
+      "size_formatted": "6.01 KB"
     },
     {
       "name": "ocr_reader.py",
       "path": "_internal/ocr_reader.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/ocr_reader.py",
-      "sha256": "4b394fd4408e7de7eb78f00c6be2d26e733738471e8e27ac87d5b367c94bf69f",
-      "size_bytes": 8684,
-      "size_formatted": "8.48 KB"
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/ocr_reader.py",
+      "sha256": "e39219b5f37060bdf29e0e14b5a1b221859f534c4270078b30cf1b5153b71e70",
+      "size_bytes": 10056,
+      "size_formatted": "9.82 KB"
     },
     {
       "name": "ocr_worker.py",
       "path": "_internal/ocr_worker.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/ocr_worker.py",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/ocr_worker.py",
       "sha256": "d33f7779d86fbfdd28485246d9e8623b9e61b5af64c167471c9f00c1a3d05f1a",
       "size_bytes": 3062,
       "size_formatted": "2.99 KB"
@@ -78,7 +78,7 @@
     {
       "name": "detect_home_base.py",
       "path": "_internal/detect_home_base.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/detect_home_base.py",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/detect_home_base.py",
       "sha256": "e251f6a5c9d89f63a6c91287033ee5bc1c7e92e28eea5387084337871c869d7e",
       "size_bytes": 4602,
       "size_formatted": "4.49 KB"
@@ -86,23 +86,23 @@
     {
       "name": "home_routine.py",
       "path": "_internal/home_routine.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/home_routine.py",
-      "sha256": "87e833df12a19424121522cc3457332ce804bce482f6b2ba29a5ef23e2a6932d",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/home_routine.py",
+      "sha256": "bd96283faef91d30feb79c80bf04d6ae1c31a7d626ad3de27553a7c58817e5e4",
       "size_bytes": 18789,
       "size_formatted": "18.35 KB"
     },
     {
       "name": "attacks.py",
       "path": "_internal/attacks/attacks.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/attacks.py",
-      "sha256": "483514ac974f40fb66e32042d8fcd835ba0171891ce4de5c9eb14bbcf24b3ace",
-      "size_bytes": 14860,
-      "size_formatted": "14.51 KB"
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/attacks.py",
+      "sha256": "1eda3f7c33ff5731c8b9912c532b61115d1c287211ffde8586ef9132ad74e556",
+      "size_bytes": 18209,
+      "size_formatted": "17.78 KB"
     },
     {
       "name": "ready_villages.pyc",
       "path": "_internal/ready_villages.pyc",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/ready_villages.pyc",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/ready_villages.pyc",
       "sha256": "f8ad4038f977be4961e19c88b204ca6b4c9d22b339a1b052acbe603e836c9d6b",
       "size_bytes": 18279,
       "size_formatted": "17.85 KB"
@@ -110,7 +110,7 @@
     {
       "name": "_main_core.pyc",
       "path": "_internal/_main_core.pyc",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/_main_core.pyc",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/_main_core.pyc",
       "sha256": "42cfed4a1c9c6449f769d3e9c51f0fb49a3559e7209f216a1cc5544c23591224",
       "size_bytes": 115165,
       "size_formatted": "112.47 KB"
@@ -118,7 +118,7 @@
     {
       "name": "uninstall.exe",
       "path": "_uninstall/uninstall.exe",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/uninstall.exe",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/uninstall.exe",
       "sha256": "e6b84f7c0ca07f39e4d405254d6796f97e8e891c45b5adbb09d99af40aa86d2a",
       "size_bytes": 37337421,
       "size_formatted": "35.61 MB"
@@ -126,7 +126,7 @@
     {
       "name": "uninstall.py",
       "path": "_uninstall/uninstall.py",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/uninstall.py",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/uninstall.py",
       "sha256": "62292485fce4aa7a345616a518f3e98544330d45b55e6c0bafb50198cd686eef",
       "size_bytes": 11233,
       "size_formatted": "10.97 KB"
@@ -134,10 +134,34 @@
     {
       "name": "firegost.ico",
       "path": "Templates/firegost.ico",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.5/firegost.ico",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/firegost.ico",
       "sha256": "92bdae1f0167f5b18d10c5d9d33405217b0a4443456d21881dcd50cdee8816d0",
       "size_bytes": 61628,
       "size_formatted": "60.18 KB"
+    },
+    {
+      "name": "duke.png",
+      "path": "Templates/duke.png",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/duke.png",
+      "sha256": "c5b711f77bb50b91ce40b4533905f8d98ee39a7f8e1dbd8fd07289af64c8da36",
+      "size_bytes": 38008,
+      "size_formatted": "37.12 KB"
+    },
+    {
+      "name": "cycle_btn.png",
+      "path": "Templates/cycle_btn.png",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/cycle_btn.png",
+      "sha256": "fb922c8bd3f1ec6938197920cb4fc077dc57214984f0d7333f0d7dd1dd0cfd8a",
+      "size_bytes": 4645,
+      "size_formatted": "4.54 KB"
+    },
+    {
+      "name": "empty_siege_active.png",
+      "path": "Templates/empty_siege_active.png",
+      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.6/empty_siege_active.png",
+      "sha256": "57a1dfb421bcca908de9cfe14adf6b689c80d5be7fe9f91b96ec089bce5978cc",
+      "size_bytes": 32374,
+      "size_formatted": "31.62 KB"
     }
   ],
   "delete_dirs": [

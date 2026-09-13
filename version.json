@@ -2,7 +2,9 @@
   "version": "1.1.7",
   "release_date": "13/09/2026",
   "changelog": [
-    "- v1.1.7: Fix lỗi bot không nâng tường (tương thích đa cấp độ tường 8-18, hỗ trợ song ngữ Anh-Việt, tối ưu khớp mẫu và tọa độ nút bấm)"
+    "- v1.1.7: Mã hoá bảo mật toàn diện mã nguồn chống crack và decompile",
+    "- v1.1.7: Fix triệt để lỗi bot không nâng tường (tương thích tường 8-18, song ngữ Anh-Việt)",
+    "- v1.1.7: Khắc phục lỗi hiển thị phiên bản và icon vương miện trên Taskbar"
   ],
   "force_update": false,
   "update_type": "delta_files",
@@ -27,73 +29,73 @@
       "name": "updater.py",
       "path": "_internal/updater.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.7/updater.py",
-      "sha256": "6fcd95941f58c4f240a8d2c175b9ce25fa63040041fec27adb303c1aa626fd98",
-      "size_bytes": 30798,
-      "size_formatted": "30.08 KB"
+      "sha256": "6e2ae90ae238f779e49fbd97f1d23367e13aea5f6f091f33c306648d01b0e8f8",
+      "size_bytes": 23706,
+      "size_formatted": "23.15 KB"
     },
     {
       "name": "autoclash_gui.py",
       "path": "_internal/autoclash_gui.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.7/autoclash_gui.py",
-      "sha256": "776e3cd3ee614e294a81383876437ac381d1e89417d50b501a5aee432e2a1999",
-      "size_bytes": 109544,
-      "size_formatted": "106.98 KB"
+      "sha256": "bc203aa0e2c6c3a2c7841529831351a99c7016a7cbc2f725f56cdac19c3e96e1",
+      "size_bytes": 72198,
+      "size_formatted": "70.51 KB"
     },
     {
       "name": "IsTarget.py",
       "path": "_internal/IsTarget.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.7/IsTarget.py",
-      "sha256": "14a5846376df8d3f414f54b09782e1c055226c4b2f786e8d32aa0bd9818b04d1",
-      "size_bytes": 7318,
-      "size_formatted": "7.15 KB"
+      "sha256": "051dd15fc197322c7b89b2948f6bf825fa01b121ac34d97ab7ee97ba55a058be",
+      "size_bytes": 9030,
+      "size_formatted": "8.82 KB"
     },
     {
       "name": "main.py",
       "path": "_internal/main.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.7/main.py",
-      "sha256": "65f5f546cb9a59f89252352aae673ce37701b27c3ac6fd63261d97347396a85c",
-      "size_bytes": 6549,
-      "size_formatted": "6.40 KB"
+      "sha256": "781aeb487e6c7b9d4916443321ed0629ea36fd2e6a536a9c20f0c13f4804a22a",
+      "size_bytes": 6894,
+      "size_formatted": "6.73 KB"
     },
     {
       "name": "ocr_reader.py",
       "path": "_internal/ocr_reader.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.7/ocr_reader.py",
-      "sha256": "e39219b5f37060bdf29e0e14b5a1b221859f534c4270078b30cf1b5153b71e70",
-      "size_bytes": 10056,
-      "size_formatted": "9.82 KB"
+      "sha256": "660ab2047f122ed0477f169dad38bad4359beca96fd0064e52f04cdfa2dbea8a",
+      "size_bytes": 11418,
+      "size_formatted": "11.15 KB"
     },
     {
       "name": "ocr_worker.py",
       "path": "_internal/ocr_worker.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.7/ocr_worker.py",
-      "sha256": "d33f7779d86fbfdd28485246d9e8623b9e61b5af64c167471c9f00c1a3d05f1a",
-      "size_bytes": 3062,
-      "size_formatted": "2.99 KB"
+      "sha256": "7862cd6be7a003c0b0214e4a0b46372c5c4cb06693460678d25ef9b284b79d21",
+      "size_bytes": 4678,
+      "size_formatted": "4.57 KB"
     },
     {
       "name": "detect_home_base.py",
       "path": "_internal/detect_home_base.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.7/detect_home_base.py",
-      "sha256": "e251f6a5c9d89f63a6c91287033ee5bc1c7e92e28eea5387084337871c869d7e",
-      "size_bytes": 4602,
-      "size_formatted": "4.49 KB"
+      "sha256": "2907100d9b306e321076c363a772a053a155adeafaa548645266b08bbb583bb7",
+      "size_bytes": 5998,
+      "size_formatted": "5.86 KB"
     },
     {
       "name": "home_routine.py",
       "path": "_internal/home_routine.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.7/home_routine.py",
-      "sha256": "a1ee5e2d324cf9ed20574a77667b57d4f0a7f1fd5b46e146a44f770eaf23c553",
-      "size_bytes": 22492,
-      "size_formatted": "21.96 KB"
+      "sha256": "d1a718bd95c9bbca7dfdc0cfc7f65366b25e427ab4b92f9abafc6f6271edabfd",
+      "size_bytes": 20826,
+      "size_formatted": "20.34 KB"
     },
     {
       "name": "attacks.py",
       "path": "_internal/attacks/attacks.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.7/attacks.py",
-      "sha256": "1eda3f7c33ff5731c8b9912c532b61115d1c287211ffde8586ef9132ad74e556",
-      "size_bytes": 18209,
-      "size_formatted": "17.78 KB"
+      "sha256": "68452bd77dd99ab0b99439dfee7df92f1e0252b6bdae6b276439c15f43c05a71",
+      "size_bytes": 13550,
+      "size_formatted": "13.23 KB"
     },
     {
       "name": "ready_villages.pyc",
@@ -123,9 +125,9 @@
       "name": "uninstall.py",
       "path": "_uninstall/uninstall.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.7/uninstall.py",
-      "sha256": "62292485fce4aa7a345616a518f3e98544330d45b55e6c0bafb50198cd686eef",
-      "size_bytes": 11233,
-      "size_formatted": "10.97 KB"
+      "sha256": "251baa3c9480f288e9bf37b7458ae5409ab52ee15194b1db13e7f683da77cce2",
+      "size_bytes": 10906,
+      "size_formatted": "10.65 KB"
     },
     {
       "name": "firegost.ico",
@@ -158,14 +160,6 @@
       "sha256": "57a1dfb421bcca908de9cfe14adf6b689c80d5be7fe9f91b96ec089bce5978cc",
       "size_bytes": 32374,
       "size_formatted": "31.62 KB"
-    },
-    {
-      "name": "firegost.ico",
-      "path": "firegost.ico",
-      "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.7/firegost.ico",
-      "sha256": "92bdae1f0167f5b18d10c5d9d33405217b0a4443456d21881dcd50cdee8816d0",
-      "size_bytes": 61628,
-      "size_formatted": "60.18 KB"
     }
   ],
   "delete_dirs": [
@@ -177,11 +171,13 @@
     "_internal/debug_match"
   ],
   "delete_files": [
+    "firegost.ico",
     "activation.exe",
     "activation.py",
     "updet.exe",
     "unins000.exe",
     "unins000.dat",
+    "version_local.json",
     "army_window_crop.png",
     "battle.png",
     "Collectors_resources.png",
@@ -222,6 +218,7 @@
     "treasure_event",
     "updater.py",
     "vcruntime140.dll",
-    "vcruntime140_1.dll"
+    "vcruntime140_1.dll",
+    "version.json"
   ]
 }

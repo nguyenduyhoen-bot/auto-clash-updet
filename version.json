@@ -30,17 +30,17 @@
       "name": "updater.py",
       "path": "_internal/updater.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/updater.py",
-      "sha256": "f927c0723110293b4c592771e694d054c39fc38174f7d94c9a6fdefc844d2c99",
-      "size_bytes": 31168,
-      "size_formatted": "30.44 KB"
+      "sha256": "a256560d43ad1536bafb0888ad64ccbdb5984b8d24b8755a5cbe7880511498a8",
+      "size_bytes": 31310,
+      "size_formatted": "30.58 KB"
     },
     {
       "name": "autoclash_gui.py",
       "path": "_internal/autoclash_gui.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/autoclash_gui.py",
-      "sha256": "a89d9c2dffd86b51e0743786890a394ea4bbb7c949123c795c041df32e8479c7",
-      "size_bytes": 126695,
-      "size_formatted": "123.73 KB"
+      "sha256": "022281f57f2f20e278d44cc3573e735ff57b2e30b104a717f3ab75a9c8384b90",
+      "size_bytes": 128960,
+      "size_formatted": "125.94 KB"
     },
     {
       "name": "ldplayer_manager.py",
@@ -172,7 +172,7 @@
     },
     {
       "name": "version_local.json",
-      "path": "version_local.json",
+      "path": "_internal/version_local.json",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/version_local.json",
       "sha256": "1ddd7a6f609fdacfcb6c7542b8b3884115850b49c69be02656b7a2b60a8f8b99",
       "size_bytes": 26,
@@ -233,6 +233,12 @@
     "treasure_event",
     "updater.py",
     "vcruntime140.dll",
-    "vcruntime140_1.dll"
+    "vcruntime140_1.dll",
+    "version_local.json",
+    "settings.json",
+    "ocr_worker.py",
+    "main.py",
+    "ldplayer_manager.py",
+    "debug_qt.log"
   ]
 }

@@ -14,8 +14,8 @@
       "name": "AutoClash.exe",
       "path": "AutoClash.exe",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/AutoClash.exe",
-      "sha256": "20deb6d7a536c6604c25c1e0c3d1c97dd634e4d41905e4811640f007f8b25f01",
-      "size_bytes": 95006783,
+      "sha256": "975c3b2cf4772ba258bf3765e1ba210ce97c644fa801a1bc58e6f056f955d566",
+      "size_bytes": 95007355,
       "size_formatted": "90.61 MB"
     },
     {
@@ -30,17 +30,17 @@
       "name": "updater.py",
       "path": "_internal/updater.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/updater.py",
-      "sha256": "8823bd004e39a13282cf42bac011d6d416ee82febbdf9d3629232804cd339a5b",
-      "size_bytes": 31214,
-      "size_formatted": "30.48 KB"
+      "sha256": "f927c0723110293b4c592771e694d054c39fc38174f7d94c9a6fdefc844d2c99",
+      "size_bytes": 31168,
+      "size_formatted": "30.44 KB"
     },
     {
       "name": "autoclash_gui.py",
       "path": "_internal/autoclash_gui.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/autoclash_gui.py",
-      "sha256": "9b2ab9fa0d34d872824efc1fbc1794b2e504f3dcad9af5f898340eda2928859a",
-      "size_bytes": 120954,
-      "size_formatted": "118.12 KB"
+      "sha256": "abf73fcc73fe35411eaeb85b36c29ec910c498a11d8c39e749063ccbe7820261",
+      "size_bytes": 125227,
+      "size_formatted": "122.29 KB"
     },
     {
       "name": "ldplayer_manager.py",
@@ -94,17 +94,17 @@
       "name": "home_routine.py",
       "path": "_internal/home_routine.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/home_routine.py",
-      "sha256": "d1a718bd95c9bbca7dfdc0cfc7f65366b25e427ab4b92f9abafc6f6271edabfd",
-      "size_bytes": 20826,
-      "size_formatted": "20.34 KB"
+      "sha256": "cc021ee92a06ee22a99b7a71801435dec419d6f5eace31b63eeba24f821e41d7",
+      "size_bytes": 23178,
+      "size_formatted": "22.63 KB"
     },
     {
       "name": "attacks.py",
       "path": "_internal/attacks/attacks.py",
       "download_url": "https://github.com/nguyenduyhoen-bot/auto-clash-updet/releases/download/v1.1.8/attacks.py",
-      "sha256": "68452bd77dd99ab0b99439dfee7df92f1e0252b6bdae6b276439c15f43c05a71",
-      "size_bytes": 13550,
-      "size_formatted": "13.23 KB"
+      "sha256": "659c68afa41de621b436c35f2259fa0f76de52acdd62710a2147166e25828dfb",
+      "size_bytes": 18979,
+      "size_formatted": "18.53 KB"
     },
     {
       "name": "boot_recovery.py",
@@ -230,7 +230,6 @@
     "MSVCP140_1.dll",
     "ocr_reader.py",
     "request_troops",
-    "settings.json",
     "treasure_event",
     "updater.py",
     "vcruntime140.dll",
